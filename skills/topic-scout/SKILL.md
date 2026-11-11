@@ -39,6 +39,8 @@ two ways on:
 
 Do not guess the person's field or experience.
 
+If Goal, Audience or Role is empty, ask for it, one question, and save it to the file before going on.
+
 ## Step 2: do you have web search?
 
 Check your own tools for anything that searches the web (a web search tool, a search MCP server, a
@@ -51,15 +53,20 @@ browser you are allowed to use). A tool that only fetches a URL you already have
 
 1. Build searches from `Role`, the field implied by the facts, and the `Audience`. Search in the
    post language and in English if the field's news is mostly in English.
-2. Keep only items published in the last 30 days. Check the date on the page itself; if you cannot
-   find a date, drop the item.
-3. Open each candidate source before using it. Report only what the source says.
+2. Take today's date from the system or the environment (for example the `date` command or the date
+   your instructions give), not from memory. Keep only items published in the 30 days before it.
+   Check the date on the page itself; if you cannot find a date, drop the item.
+3. Open each candidate source before using it. Report only what the source says. If a source cannot
+   be opened, use only what the search result itself shows, and drop the item when its date or its
+   claim is not visible there.
 4. For each item, find the fact or story id it connects to: the person has done, seen or measured
    something that bears on it. No id, no topic.
 5. Drop items that do not serve the `Goal` line: news the target reader would not care about, or
    that pulls the person toward a field they did not name.
 6. Offer five to seven topics. If fewer than five survive, offer what you have and say why the list
-   is short; do not pad with older or unlinked items.
+   is short; do not pad with older or unlinked items. If no topic survives, say why (no recent
+   items, none tied to an id, none serving the `Goal`) and go to Step 3b for evergreen topics,
+   leaving out its no-search first line.
 
 Format each topic like this:
 

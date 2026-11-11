@@ -39,6 +39,8 @@ two ways on:
 
 Do not continue on guessed facts.
 
+If Goal or Audience is empty, ask for it, one question, and save it to the file before going on.
+
 ## Step 2: the topic
 
 If the person already named a topic, use it. If not, ask what the post is about. If they have no
@@ -71,7 +73,8 @@ The person picks one, changes one, or combines two. Apply their edits as they wr
 adds a new fact, ask whether to append it to `byline/person.md` with the next free id; cite it only
 once it has an id.
 
-Channel: if `Channels` lists one channel, use it. If it lists several, ask which one this post is for.
+Channel: if `Channels` lists one channel, use it. If it lists several, or it is empty, ask which one
+this post is for (one question).
 
 ## Step 6: print the angle card
 

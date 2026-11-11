@@ -25,7 +25,11 @@ a post built on "In March we cut onboarding from 14 days to 3 for a 40-person cl
   If something is unclear, ask; do not fill it in.
 - **At most one follow-up per question.** An answer with no number, name, date or event gets one
   follow-up that asks for the specific ("Which client was that, or what changed in numbers?"). Whatever
-  the second answer is, move on. Never a second follow-up on the same question.
+  the second answer is, move on. Never a second follow-up on the same question. If the answer is
+  still vague, save it as an `S` entry only if it is a case told as a sequence of events; otherwise
+  save nothing from it.
+- **Private means off limits.** If at any point the person asks to keep something private or out of
+  posts, do not put it in a fact or story; add it to the off-limits list at once.
 - **"Skip" is a fine answer.** Move to the next question without comment.
 
 ## Start: is there a file already?
@@ -106,15 +110,19 @@ whether to remove it; remove it only if they say yes.
 - X1: a topic, client, number or employer never to mention
 ```
 
-   `Channels` is a comma list such as `linkedin, newsletter`. A section with nothing in it keeps its
-   heading and has no entries.
+   The `F1`, `S1` and `X1` lines above are examples of the shape. Replace the example entries with
+   the person's real ones; delete an example line if there is nothing to put in its place. Never
+   save an example line as an entry. `Channels` is a comma list such as `linkedin, newsletter`. A
+   section with nothing in it keeps its heading and has no entries.
 3. Show the whole file to the person.
 4. Ask whether anything is wrong or missing, and fix what they point out.
 5. Tell them the file is plain text at `byline/person.md` and they can edit it by hand at any time.
 
 ## Adding to an existing file
 
-1. Read `byline/person.md`.
+1. Read `byline/person.md`. If it has no `## Facts` section or does not follow the format above, do
+   not rewrite it silently: say what is missing or different and ask whether to repair it. A repair
+   keeps every existing entry and id as it is.
 2. Summarise it in one line ("You: Role, writing for Audience on Channels, 6 facts, 2 stories, 1
    off-limits item").
 3. Ask what they want to add: a new result, a story, an off-limits item, or a change to the basics.
