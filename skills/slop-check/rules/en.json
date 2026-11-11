@@ -1,0 +1,61 @@
+{
+  "code": "en",
+  "name": "English",
+  "status": "measured",
+  "detect_markers": ["the", "and", "that", "with", "this", "for", "have", "you", "but", "are"],
+  "vocab": [
+    "leverage", "navigate", "unlock", "empower", "delve", "synergy", "streamline", "foster", "robust",
+    "holistic", "nuanced", "landscape", "paradigm", "resonate", "comprehensive", "facilitate", "optimize",
+    "catalyst", "utilize", "implement", "demonstrate", "methodology", "endeavor", "commence", "unpack",
+    "lean into", "leaned into", "leaning into", "double down", "doubled down", "doubling down", "deep dive",
+    "circle back", "circled back", "game-changer", "thought leadership",
+    "deeply", "truly", "fundamentally", "inherently", "simply", "literally", "inevitably", "seamless",
+    "cutting-edge", "transformative",
+    "furthermore", "moreover", "additionally", "that being said", "it's also worth considering",
+    "on the flip side", "in addition to this", "building on that point", "this brings us to",
+    "with that in mind", "interestingly", "importantly", "crucially",
+    "tapestry", "testament to", "realm", "embark", "beacon", "multifaceted", "myriad", "plethora",
+    "meticulous", "intricate", "supercharge", "turbocharge", "ever-evolving", "plays a crucial role",
+    "say goodbye to", "unleash", "reimagined", "redefined", "next level", "transform the way",
+    "re:the future of \\w+(?: \\w+)? is here", "effortless", "in just a few clicks", "this changes everything",
+    "built different"
+  ],
+  "endings": ["s", "es", "d", "ed", "ing", "ly"],
+  "final_e_endings": ["e", "es", "ed", "ing"],
+  "closers": [
+    "thoughts?", "agree?", "what do you think", "let me know in the comments",
+    "would love to hear your thoughts", "what's your experience"
+  ],
+  "contrast": [
+    "\\bit'?s not\\b[^.!?\\n]{1,80}[.,;:!?]\\s*it'?s\\b",
+    "\\bisn'?t\\b[^.!?\\n]{1,60},\\s*it'?s\\b",
+    "\\bnot because\\b[^.!?\\n]{1,80}[.;,]\\s*(?:it'?s\\s+)?because\\b",
+    "\\bisn'?t the (?:problem|point|issue)\\b[^.!?\\n]{0,40}[.!?]\\s*[^.!?\\n]{1,60}?\\bis[.!?]"
+  ],
+  "negation_words": [
+    "not", "no", "never", "don't", "dont", "doesn't", "didn't", "won't", "can't", "cannot",
+    "isn't", "aren't", "wasn't", "shouldn't", "wouldn't", "stop", "stopped", "quit", "avoid",
+    "without", "nobody", "none", "neither", "nor", "instead", "rather", "hate", "tired", "sick",
+    "ban", "banned", "say", "says", "said", "saying", "write", "writes", "wrote", "writing",
+    "ask", "asks", "asking", "beg", "begs", "begging", "cringe", "cringey", "wary", "beware",
+    "promising", "promises", "claims", "claiming", "false", "misleading", "scam", "scams",
+    "fake", "fraud", "suspicious"
+  ],
+  "negation_phrases": [
+    "\\bno\\s+more\\b", "\\bno\\s+need\\s+to\\b", "\\bend(?:s|ing)?\\s+with\\b", "\\bposts?\\s+(?:that|which)\\b",
+    "\\b(?:posts?|things|stuff|endings?|ctas?|lines?|phrases?|hooks?|tactics?|tricks?)\\s+like\\b"
+  ],
+  "list_leads": ["and", "or"],
+  "not_item_start": [
+    "that", "which", "because", "but", "when", "if", "so", "and", "or", "nor", "yet", "while", "although",
+    "though", "unless", "whereas", "however",
+    "yes", "no", "thanks", "ok", "okay"
+  ],
+  "parentheticals": [
+    "honestly", "frankly", "basically", "actually", "of course", "quite honestly", "to be honest", "in fact",
+    "by the way",
+    "apparently", "sadly", "luckily", "clearly", "obviously", "perhaps", "indeed", "anyway", "unfortunately"
+  ],
+  "middle_only_parentheticals": ["anyway", "sadly"],
+  "thresholds": {}
+}

@@ -1,0 +1,7 @@
+{
+  "linkedin": {"char_limit": 3000, "hashtag_max": 5},
+  "x": {"char_limit": 280, "hashtag_max": 2},
+  "threads": {"char_limit": 500, "hashtag_max": 1},
+  "telegram": {"char_limit": 4096, "hashtag_max": 3},
+  "newsletter": {"char_limit": null, "hashtag_max": 0}
+}

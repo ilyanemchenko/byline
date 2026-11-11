@@ -59,7 +59,7 @@ def _fold(ch: str) -> str:
         # Only Latin letters lose their diacritics (día -> dia); Cyrillic й
         # decomposes to и + breve and must stay й.
         if base.isascii():
-            return base
+            return base.lower()  # İ has no one-character lower case: fold to I, then lower it
     return low
 
 

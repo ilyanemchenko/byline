@@ -7,6 +7,7 @@ def test_normalize_folds_and_keeps_length():
     assert t.normalize("Ёж") == "еж"
     assert t.normalize("“Café”") == '"cafe"'
     assert t.normalize("й") == "й"
+    assert t.normalize("İ") == "i"
     for s in ("İstanbul — ﬁne", "A B", "naïve ‘quote’"):
         assert len(t.normalize(s)) == len(s)
 
