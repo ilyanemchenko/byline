@@ -12,9 +12,10 @@ This names patterns. It does not say who wrote the text.
 - `manifest.json` has one row per text: `id`, `class` (`human` | `machine`), `split` (`tune` | `holdout`),
   `file` and `words`. Human rows add `author`, `title`, `url`, `published`, `licence`, `licence_url` and
   `retrieved`. Machine rows add `model`, `tool`, `prompt`, `generated` and `wrapper_removed`.
-- `en/human/h01.txt` … `h26.txt` and `en/machine/m01.txt` … `m20.txt` are plain UTF-8, with paragraphs
-  separated by blank lines.
+- `en/human/h01.txt` … `h36.txt` and `en/machine/m01.txt` … `m30.txt` are plain UTF-8, with paragraphs
+  separated by blank lines. h01–h26 and m01–m20 are the tuning set; h27–h36 and m21–m30 are the holdout.
 - `RESULTS.md` records every holdout run and the numbers on the tuning set.
+- `holdout-selection.md` is the log of how the human holdout texts were chosen and cut.
 
 ## Human texts: sources and licences
 
@@ -78,11 +79,38 @@ How the excerpts were cut:
   archive page. Pavlina dates are the page's `datePublished`. Gwern dates are the page's issue date, and
   only pages last modified before 2022-11-01 were used, because Gwern revises pages over time.
 
+### Human holdout (h27–h36)
+
+A separate agent collected these 10 texts by a fixed rule, without running any checker:
+
+- Babauta: 4 texts. The first post listed under a set month of the zenhabits archive.
+- Pavlina: 4 texts. The first post of a set month archive, skipping posts tagged as announcements.
+- Gwern: 2 texts. The first two essays in the site index whose last-modified date is before 2022-11.
+- Each text starts at the first body paragraph and stops before the block that would pass 450 words.
+  Quotations, reader submissions and page furniture are dropped; footnote and date marks are removed.
+
+Its log is `holdout-selection.md`. The log numbers the texts h21–h30; they were renumbered h27–h36 in the
+same order when they were added here. The manifest's `words` uses the checker's own word count, so it can
+differ by a few words from the log, which counted whitespace tokens.
+
+| id | Author | Post | Published | Words |
+|---|---|---|---|---|
+| h27 | Leo Babauta | [The 38 Best Methods of Successful Exercisers](https://zenhabits.net/fit-habit/) | 2013-03-29 | 190 |
+| h28 | Steve Pavlina | [How to Earn Passive Income From Intellectual Property](https://stevepavlina.com/blog/2012/05/how-to-earn-passive-income-from-intellectual-property/) | 2012-05-31 | 440 |
+| h29 | Gwern Branwen | [The Scaling Hypothesis](https://gwern.net/scaling-hypothesis) | 2020-05-28 | 422 |
+| h30 | Leo Babauta | [How Taking Care of My Finances Changed My Life](https://zenhabits.net/financial-care/) | 2015-06-29 | 395 |
+| h31 | Steve Pavlina | [Selecting Projects Wisely](https://stevepavlina.com/blog/2014/08/selecting-projects-wisely/) | 2014-08-29 | 355 |
+| h32 | Gwern Branwen | [Death Note: L, Anonymity & Eluding Entropy](https://gwern.net/death-note-anonymity) | 2011-05-04 | 412 |
+| h33 | Leo Babauta | [The Ideal vs. the Reality of Changing Your Life](https://zenhabits.net/realism/) | 2017-09-26 | 357 |
+| h34 | Steve Pavlina | [30 Days of Disneyland – Day 30](https://stevepavlina.com/blog/2016/11/30-days-disneyland-day-30/) | 2016-11-25 | 450 |
+| h35 | Leo Babauta | [Coming Back to Powerful Habits (plus 6 Powerful Habits)](https://zenhabits.net/coming-back/) | 2020-02-28 | 446 |
+| h36 | Steve Pavlina | [Creating the Peer Group I’ve Always Longed for](https://stevepavlina.com/blog/2019/04/creating-the-peer-group-ive-always-longed-for/) | 2019-04-28 | 430 |
+
 ## Machine texts
 
-On 2026-11-11, twenty independent Claude subagents in Claude Code wrote one post each. Each started
-from a fresh context and was given exactly two lines: the prompt `Write a LinkedIn post in English about
-{topic}.` and an instruction to save the post, and nothing else, to a file. There was no system prompt of
+On 2026-11-11, independent Claude subagents in Claude Code (twenty for the tuning set, ten more for the
+holdout) wrote one post each. Each started from a fresh context and was given exactly two lines: the
+prompt `Write a LinkedIn post in English about {topic}.` and an instruction to save the post, and nothing else, to a file. There was no system prompt of
 ours, no style hint and no example. No chat wrapper line was found, so every row has
 `wrapper_removed: false`.
 
@@ -117,13 +145,25 @@ the build machine that day.
 | m18 | Claude Opus 5.5 | data-driven decision making |
 | m19 | Claude Haiku 5.5 | my morning routine |
 | m20 | Claude Sonnet 5.5 | changing careers at 35 |
+| m21 | Claude Haiku 5.5 | what I wish I knew before starting my first business (holdout) |
+| m22 | Claude Sonnet 5.5 | the power of saying thank you at work (holdout) |
+| m23 | Claude Opus 5.5 | how to run a good one-on-one meeting (holdout) |
+| m24 | Claude Haiku 5.5 | why I stopped multitasking (holdout) |
+| m25 | Claude Sonnet 5.5 | lessons from my first sales call (holdout) |
+| m26 | Claude Opus 5.5 | negotiating a salary (holdout) |
+| m27 | Claude Haiku 5.5 | how to onboard a new team member (holdout) |
+| m28 | Claude Sonnet 5.5 | the fear of public speaking (holdout) |
+| m29 | Claude Opus 5.5 | what a bad boss taught me (holdout) |
+| m30 | Claude Haiku 5.5 | work-life balance for founders (holdout) |
 
 ## Splits, tuning and the bar
 
 The first 40 texts were split into odd ids (`tune`) and even ids (`holdout`). Three holdout runs failed
 the bar (see `RESULTS.md`). The checker then gained whole-post template patterns, and all 46 texts here
 became the tuning set. A fresh holdout of 10 human and 10 machine texts was collected by agents the tuner
-does not control. It is run once against the frozen commit.
+does not control. It was run once against the frozen commit 5c06f25, on 2026-11-11. Result: human
+10 clean (0 `some`, 0 `heavy`); machine 7 `some`, 3 `clean`. **The bar passed**, with the machine side at
+exactly the minimum of 7. Details are in `RESULTS.md`.
 
 Tuning rules:
 
@@ -144,8 +184,7 @@ From the repository root:
 python3 -m pytest tests/test_reference_set.py
 ```
 
-The manifest checks always run. The holdout checks run once holdout rows are in `manifest.json`; until
-then they are skipped. To see the label of one text:
+This runs the manifest checks and the release bar on the holdout rows. To see the label of one text:
 
 ```bash
 python3 skills/slop-check/scripts/check.py reference/en/machine/m01.txt --lang en

@@ -16,6 +16,36 @@ Runs 1–3 used the first holdout (the even ids of the first 40 texts); tuning u
 After run 3 the first holdout was folded into the tuning set, and a fresh holdout was collected by agents
 the tuner does not control. The next row is the one run of that fresh holdout against the frozen commit.
 
+| # | Date | Commit | Human heavy | Human some | Machine not clean | Bar | What changed before this run |
+|---|---|---|---|---|---|---|---|
+| 4 | 2026-11-11 | 5c06f25 | 0 | 0 | 7 | **pass** | fresh holdout (h27–h36, m21–m30); whole-post template patterns, all 46 earlier texts as the tuning set |
+
+## Fresh holdout (run 4)
+
+This holdout was run once, on 2026-11-11, by the controller (not the tuner), with
+`check.py --lang en --json` against the frozen commit 5c06f25. No rule, constant, pattern or tuning text
+changed after that run.
+
+| id | label | score | | id | label | score |
+|---|---|---|---|---|---|---|
+| h27 | clean | 0 | | m21 | some | 35 |
+| h28 | clean | 1 | | m22 | some | 30 |
+| h29 | clean | 1 | | m23 | some | 45 |
+| h30 | clean | 2 | | m24 | some | 47 |
+| h31 | clean | 2 | | m25 | some | 32 |
+| h32 | clean | 1 | | m26 | some | 45 |
+| h33 | clean | 0 | | m27 | clean | 2 |
+| h34 | clean | 0 | | m28 | clean | 17 |
+| h35 | clean | 15 (one `setup`) | | m29 | some | 30 |
+| h36 | clean | 1 | | m30 | clean | 17 |
+
+Bar: human `heavy` 0 (needs 0), human `some` 0 (at most 2), machine not `clean` 7 (at least 7).
+**The bar passed, but only just on the machine side: 7 of 10 is exactly the minimum.** Three machine posts
+read as clean: m27 (score 2), m28 and m30 (17 each, one template pattern and one marker). The human side
+had room to spare: all 10 clean, the highest at 15.
+
+Running `python3 -m pytest tests/test_reference_set.py` on this commit gives the same labels.
+
 ## Tuning set
 
 All 46 texts in `manifest.json` (26 human, 20 machine) with `split: tune`, measured with the rules in
