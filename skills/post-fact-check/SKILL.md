@@ -63,20 +63,29 @@ A sentence can hold several claims; list each one.
 | `not in the file` | no entry says it |
 | `contradicts F3` | an entry says something different (22% in the file, 25% in the draft) |
 | `off limits X1` | it touches an item under `## Off limits` |
+| `confirmed by the person` | the draft came from `post-writer` and its `Facts used:` line lists this fact as `said in this conversation` |
 
 Rounding, a bigger or vaguer unit, or a stronger verb ("led" for "helped") is a contradiction, not a
-confirmation.
+confirmation. A detail the entry does not give at all (a year when the entry says only "in
+September") is `not in the file`.
 
 ## Step 5: report
 
-Print one line per claim, in draft order. For example (invented person, file as in the example of
-`person-interview`):
+Print one line per claim, in draft order. For example, an invented person whose file holds:
 
 ```
-1. "no-shows went from 22% to 9%"   confirmed F1
-2. "for over 40 clinics"            not in the file    suggest: ask
-3. "in 2024"                        contradicts F1 (September)    suggest: reword to "in September"
-4. "my work for Northwind"          off limits X1      suggest: cut
+- F1: In September a dental practice in Leeds went from 22% to 9% no-shows after we added SMS reminders.
+- X1: Northwind, my former employer
+```
+
+and a draft that claims:
+
+```
+1. "a dental practice in Leeds"     confirmed F1
+2. "in September 2024"              not in the file (F1 gives no year)    suggest: reword to "in September"
+3. "no-shows fell from 25% to 9%"   contradicts F1 (22%)    suggest: reword to "from 22% to 9%"
+4. "for over 40 clinics"            not in the file    suggest: ask
+5. "my years at Northwind"          off limits X1      suggest: cut
 ```
 
 For every claim that is not confirmed, suggest one of:
@@ -85,16 +94,20 @@ For every claim that is not confirmed, suggest one of:
 - **ask:** only the person knows whether it is true;
 - **reword:** an entry supports a narrower version; give the narrower wording, built only from that entry.
 
-End with a count: "4 claims: 1 confirmed, 3 need a decision."
+End with a count: "5 claims: 1 confirmed, 4 need a decision."
 
 ## Step 6: the unconfirmed claims, one at a time
 
-For each claim marked `ask`, ask the person whether it is true and what exactly it is, one claim per
-message.
+Go through every claim that is not confirmed, one claim per message, in draft order, using its
+suggestion:
 
-- **True, with the specific:** offer to append it to `byline/person.md` as the next free `F` id. Append
-  only on yes; never renumber or reuse an id. The claim is now confirmed with that id.
-- **Not true, or not sure:** suggest cutting it or the narrower wording.
+- **`ask`:** ask whether it is true and what exactly it is.
+  - True, with the specific: offer to append it to `byline/person.md` as a new `F` entry. Its id is the
+    highest existing `F` number plus one; never reuse or renumber an id. Append only on yes. The claim
+    is now confirmed with that id (or confirmed by the person, if they decline to append it).
+  - Not true, or not sure: offer the cut or a narrower wording built from an entry.
+- **`cut` or `reword`:** show the suggestion and ask whether to apply it.
+- **`off limits`:** always offer it as a cut, and ask whether to apply it.
 
 Apply a cut or rewording to the draft only when the person agrees, and only to that claim's words. If
 the draft came from a file, save the changed text back to the same file, post text only.

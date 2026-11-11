@@ -28,9 +28,8 @@ conventions chosen for byline, not platform limits, except where a platform page
 | | |
 |---|---|
 | Hard limit | 280 characters for a standard post. Source: https://docs.x.com/fundamentals/counting-characters.md, read 2026-11-11. Each URL counts as 23 characters whatever its length; each emoji counts as 2; Chinese, Japanese and Korean characters count as 2. |
-| Longer posts | Paid subscribers can post up to 25,000 characters (help.x.com, X Premium pages, seen in search results on 2026-11-11; the page itself refused automated reading, so this number is not verified). Byline keeps to 280 unless the person says their account takes longer posts. |
-| Before the fold | A standard post shows in full. For a longer post, not documented by the platform. |
-| Formatting | Plain text with line breaks. Bold and italic exist only in longer posts for subscribers. |
+| Before the fold | A post of 280 characters or fewer shows in full. |
+| Formatting | Plain text with line breaks. |
 | Hashtags | Convention, not a platform limit: byline allows up to 2. |
 | Links | A link costs 23 characters of the 280 (source above). |
 
@@ -60,7 +59,7 @@ conventions chosen for byline, not platform limits, except where a platform page
 | | |
 |---|---|
 | Hard limit | None: there is no single platform. `char_limit` is `null`. Each sending tool has its own rules. |
-| Before the fold | Not documented by any platform. Secondary source: Litmus, https://www.litmus.com/blog/the-ultimate-guide-to-preview-text-support (read 2026-11-11), advises keeping the preview text under 90 characters because inboxes show anywhere from none to a few lines. The first sentence is what the inbox shows. |
+| Before the fold | `not documented by the platform` (there is no single platform). Secondary source: Litmus, https://www.litmus.com/blog/the-ultimate-guide-to-preview-text-support (read 2026-11-11), advises keeping the preview text under 90 characters because inboxes show anywhere from none to a few lines. The first sentence is what the inbox shows. |
 | Formatting | Whatever the sending tool supports: headings, bold, links and lists usually work. |
 | Hashtags | None (maximum 0). |
 | Links | Convention: as many as the text needs, each with words that say where it goes. |

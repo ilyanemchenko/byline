@@ -19,7 +19,8 @@ or `S` entry, or from an answer the person gives in this conversation.
 
 - One question per message. Write in the language of the `Language` line, or the language the person
   writes in if the line is empty.
-- Every number, client, result, event and title in the draft comes from an `F` or `S` entry.
+- Every number, client, result, event and title in the draft comes from an `F` or `S` entry, or from
+  an answer the person gave in this conversation.
 - Nothing listed under `## Off limits` appears in the draft, not even as a hint. Never cite an `X` id.
 - Stay inside the channel's hard limit, counted in characters. The limits are in `channels.md` next to
   this file.
@@ -65,8 +66,10 @@ Channel:
 Read the entries the angle stands on. If the claim needs a specific the file does not have (the
 number behind a result, the kind of client, when it happened), ask the person one question for it.
 
-- **They answer:** use the answer as given, and offer to append it to `byline/person.md` as the next
-  free `F` id. Append only if they say yes; never renumber.
+- **They answer:** use the answer as given, and offer to append it to `byline/person.md` as a new `F`
+  entry. Its id is the highest existing `F` number plus one; never reuse or renumber an id. Append
+  only if they say yes. If they decline, the fact is still used and is listed as said in this
+  conversation (Step 5).
 - **They do not know or skip:** write without it. Do not soften the gap with a vague stand-in ("many
   clients", "a big result").
 
@@ -89,18 +92,23 @@ How the post reads:
 - No chain of dashes. Use full stops and commas.
 - Formatting only where the channel supports it (see `channels.md`).
 
-Count the characters of the finished post. If it is over the channel's hard limit, cut it; do not
-split it into a thread unless the person asks.
+Check the length with a count, not by eye. If the `slop-check` skill is available, run its script on
+the post with `--lang` and `--channel`: it reports by how many characters the post is over the
+limit. Otherwise count the characters with a tool. If the post is over the channel's hard limit, cut
+it; do not split it into a thread unless the person asks.
 
 ## Step 5: save and show
 
 1. Create `byline/drafts/` if it is missing.
-2. Save the post text, and nothing else, to `byline/drafts/YYYY-MM-DD-<slug>.md`: today's date and a
+2. Save the post text, and nothing else, to `byline/drafts/YYYY-MM-DD-<slug>.md`: today's date, taken
+   from the system or the environment (for example the `date` command), not guessed, and a
    slug of two to five lower-case words from the topic, joined by hyphens. If that file exists, add
    `-2`, `-3` and so on.
 3. Show the post as saved.
 4. Then one line listing the ids the post uses, exactly in this form: `Facts used: F2, S1`. Add any
-   new id appended in Step 3.
+   new id appended in Step 3. A fact the person gave in Step 3 but did not want in the file is listed
+   by its words, marked `said in this conversation`:
+   `Facts used: F2, S1, "about 30 clinics" (said in this conversation)`.
 5. Then one line naming the three checks: `post-fact-check` for every claim about the person,
    `post-editor` for the opening, example and ending, and `slop-check` last, run with the post's
    language and channel.

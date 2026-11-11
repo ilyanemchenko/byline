@@ -78,7 +78,9 @@ already be an `F` or `S` entry.
 ## Step 5: apply on request
 
 Ask which notes to apply. Change only the quoted places of the notes the person chose, using the fix
-they accepted or their own wording. Leave every other sentence exactly as it was. If the draft came
+they accepted or their own wording. A quoted place is the sentence, or sentences, that contain the
+quote. Leave every other sentence exactly as it was. The edited post stays within the channel's hard
+limit in `channels.md`; if an edit would push it over, say so and propose a shorter wording. If the draft came
 from a file, save the edited text back to the same file, post text only, then show it.
 
 After edits, the last check is `slop-check`, run with the post's language and channel.
