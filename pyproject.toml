@@ -1,0 +1,14 @@
+[project]
+name = "byline"
+version = "0.1.0"
+description = "Skills for posts you would sign your name to: interview, angles, topics, writing, fact check, editing, and a model-free check for AI tells."
+license = { text = "Apache-2.0" }
+authors = [{ name = "Ilya Nemchenko" }]
+requires-python = ">=3.9"
+dependencies = []
+
+[project.urls]
+Repository = "https://github.com/ilyanemchenko/byline"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

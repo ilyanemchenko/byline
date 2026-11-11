@@ -1,0 +1,27 @@
+{
+  "name": "byline-skills",
+  "description": "Skills for posts you would sign your name to: interview, angles, topics, writing, fact check, editing, and a model-free check for AI tells.",
+  "owner": {
+    "name": "Ilya Nemchenko"
+  },
+  "plugins": [
+    {
+      "name": "byline",
+      "description": "Skills for posts you would sign your name to: interview, angles, topics, writing, fact check, editing, and a model-free check for AI tells.",
+      "version": "0.1.0",
+      "source": "./",
+      "author": {
+        "name": "Ilya Nemchenko"
+      },
+      "license": "Apache-2.0",
+      "keywords": [
+        "writing",
+        "linkedin",
+        "content",
+        "ai-slop",
+        "agent-skills",
+        "personal-brand"
+      ]
+    }
+  ]
+}

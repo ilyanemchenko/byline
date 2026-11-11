@@ -1,0 +1,20 @@
+{
+  "name": "byline-skills",
+  "interface": {
+    "displayName": "Byline"
+  },
+  "plugins": [
+    {
+      "name": "byline",
+      "source": {
+        "source": "url",
+        "url": "./"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

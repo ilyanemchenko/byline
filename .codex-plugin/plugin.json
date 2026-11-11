@@ -1,0 +1,38 @@
+{
+  "name": "byline",
+  "version": "0.1.0",
+  "description": "Skills for posts you would sign your name to: interview, angles, topics, writing, fact check, editing, and a model-free check for AI tells.",
+  "author": {
+    "name": "Ilya Nemchenko",
+    "url": "https://github.com/ilyanemchenko"
+  },
+  "homepage": "https://github.com/ilyanemchenko/byline",
+  "repository": "https://github.com/ilyanemchenko/byline",
+  "license": "Apache-2.0",
+  "keywords": [
+    "writing",
+    "linkedin",
+    "content",
+    "ai-slop",
+    "agent-skills",
+    "personal-brand"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Byline",
+    "shortDescription": "Skills for posts you would sign your name to",
+    "longDescription": "Skills for posts you would sign your name to: interview, angles, topics, writing, fact check, editing, and a model-free check for AI tells.",
+    "developerName": "Ilya Nemchenko",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Check this post for AI tells.",
+      "Interview me, then write a LinkedIn post in my name."
+    ],
+    "websiteURL": "https://github.com/ilyanemchenko/byline"
+  }
+}
