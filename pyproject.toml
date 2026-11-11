@@ -12,3 +12,4 @@ Repository = "https://github.com/ilyanemchenko/byline"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+pythonpath = ["skills/slop-check/scripts"]
