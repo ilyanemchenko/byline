@@ -1,0 +1,25 @@
+Last quarter we almost killed our best-performing feature.
+
+The dashboard said usage was flat. The team was ready to move on. Then someone asked a simple question: "Flat for whom?"
+
+We split the numbers by customer segment. New users barely touched it. Customers in their third month used it every single day, and they renewed at nearly twice the rate of everyone else.
+
+The data hadn't lied. We had just asked it a lazy question.
+
+Here's what that week taught me about data-driven decisions:
+
+1. Start with the decision, not the dashboard. Write down what you'd do differently if the number went up or down. If the answer is "nothing," you're tracking a vanity metric.
+
+2. Averages hide the story. Always break a number down at least one level (by segment, cohort, or channel) before acting on it.
+
+3. Pair every metric with a conversation. Numbers tell you what is happening. Five customer calls tell you why.
+
+4. Decide what would change your mind before you look. Otherwise you'll find a way to read any chart as proof you were right.
+
+5. Don't wait for perfect data. Make the call with what you have, set a date to review it, and treat the result as the next data point.
+
+Being data-driven isn't about having more charts. It's about asking better questions and being honest when the answer surprises you.
+
+What's a decision your team nearly got wrong because of a number that looked obvious?
+
+#DataDriven #DecisionMaking #Leadership #ProductManagement #Analytics

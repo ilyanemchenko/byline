@@ -1,0 +1,21 @@
+Last month I watched a two-person marketing team ship more campaign variants in a week than my old team of eight shipped in a quarter.
+
+They weren't working harder. They'd changed what "work" meant.
+
+Here's what I think AI is actually changing in marketing, beyond the hype:
+
+1. The blank page is gone. Nobody starts from zero anymore. The first draft, the first ten subject lines, the first mood board arrive in minutes. The hard part moved from producing to choosing.
+
+2. Taste became the bottleneck. When anyone can generate 50 options, the person who knows which one is right becomes the most valuable person in the room. Judgment doesn't scale with compute.
+
+3. Testing got cheap, so guessing got expensive. If you can spin up twenty versions of a landing page, there's no excuse for arguing about the headline in a meeting. Ship them and let the audience decide.
+
+4. Generic content is now free, which means it's worthless. The feed is flooding with competent, forgettable posts. What still cuts through: a real opinion, a specific story, a number only you have.
+
+5. The brief matters more than ever. AI is a brilliant intern with no context. Teams that write sharp briefs get sharp output. Teams that write "make it pop" get exactly that.
+
+The marketers I see winning aren't the ones using the most tools. They're the ones who know their customer better than any model does, and use AI to get that insight in front of people faster.
+
+AI didn't replace the marketer. It replaced the excuses.
+
+What's one thing AI has genuinely changed in how your team works?

@@ -7,7 +7,7 @@ import re
 from typing import List
 
 from . import rules
-from .scan import Report
+from .scan import TEMPLATE_CODES, Report
 
 DISCLAIMER = "This names patterns. It does not say who wrote the text."
 LABEL_TEXT = {"clean": "clean", "some": "some AI tells", "heavy": "heavy AI tells"}
@@ -36,17 +36,24 @@ def _language_line(report: Report) -> str:
             f"{_count(report.markers, 'marker')}")
 
 
+def _flag_line(item) -> str:
+    return f"  line {item.line:<4} {item.code:<12} {_quote(item.text)}"
+
+
 def render_text(report: Report) -> str:
     lines: List[str] = [f"byline slop-check: {LABEL_TEXT[report.label]} (score {report.score}/100)",
                         _language_line(report)]
+    whole = [item for item in report.flags if item.code in TEMPLATE_CODES]
+    local = [item for item in report.flags if item.code not in TEMPLATE_CODES]
+    if whole:
+        lines += ["", "Whole post"] + [_flag_line(item) for item in whole]
     flagged = set(report.flagged_paragraphs)
-    for paragraph in sorted({item.paragraph for item in report.flags}):
+    for paragraph in sorted({item.paragraph for item in local}):
         heading = f"Paragraph {paragraph + 1}"
         if paragraph in flagged:
             heading += " (flagged)"
         lines += ["", heading]
-        lines += [f"  line {item.line:<4} {item.code:<10} {_quote(item.text)}"
-                  for item in report.flags if item.paragraph == paragraph]
+        lines += [_flag_line(item) for item in local if item.paragraph == paragraph]
     if report.notes:
         lines.append("")
         lines += [f"Note: {note}" for note in report.notes]

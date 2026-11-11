@@ -19,7 +19,7 @@ from .text import WORD, normalize
 STATUSES = ("measured", "beta")
 REQUIRED_KEYS = ("code", "name", "status", "detect_markers", "vocab")
 # Lists of plain entries: each must already be in normalised form.
-_PLAIN_LISTS = ("detect_markers", "endings", "final_e_endings", "closers", "negation_words",
+_PLAIN_LISTS = ("detect_markers", "endings", "final_e_endings", "closers", "reader_words", "negation_words",
                 "list_leads", "not_item_start", "parentheticals", "middle_only_parentheticals")
 # Lists of raw regular expressions.
 _REGEX_LISTS = ("contrast", "negation_phrases")
@@ -64,6 +64,8 @@ class Language:
     middle_only_parentheticals: frozenset
     detect_markers: frozenset
     thresholds: Thresholds
+    reader_words: frozenset = frozenset()  # words that address the reader ("you"); a "word*" entry is a stem
+    reader_stems: tuple = ()
 
 
 @dataclass(frozen=True)
@@ -190,6 +192,8 @@ def load(code: str) -> Language:
         middle_only_parentheticals=frozenset(data.get("middle_only_parentheticals", [])),
         detect_markers=frozenset(data["detect_markers"]),
         thresholds=Thresholds(**data.get("thresholds", {})),
+        reader_words=frozenset(w for w in data.get("reader_words", []) if not w.endswith("*")),
+        reader_stems=tuple(w[:-1] for w in data.get("reader_words", []) if w.endswith("*")),
     )
 
 

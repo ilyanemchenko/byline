@@ -1,0 +1,29 @@
+Most meetings should be emails.
+
+Last quarter I counted. Of 22 recurring meetings on my calendar, 15 followed the same pattern: one person talks, everyone else listens, and the only "decision" is "sounds good."
+
+That's not a meeting. That's a broadcast with a calendar invite.
+
+Here's why email (or a short doc) wins for most of them:
+
+1. It respects time zones and focus. A written update gets read when people are ready, not when the calendar says so. No one has to leave deep work for a status check.
+
+2. Writing forces clarity. If you can't explain the update, the ask, or the decision in five sentences, a meeting won't save you. It will just hide the fuzziness for an hour.
+
+3. You get a record for free. No "who agreed to what?" three weeks later. The thread is the memory.
+
+4. Quiet people get a real voice. In a meeting, the loudest idea often wins. In writing, the best-argued one has a chance.
+
+5. The math is brutal. A 30-minute meeting with 8 people costs 4 hours of work time. A 5-minute email costs 5 minutes to write and about 2 to read.
+
+Keep the meeting for what it's actually good at:
+- Real disagreement that needs live back-and-forth
+- Sensitive conversations where tone matters
+- Brainstorming where ideas build on each other
+- Building trust in a new team
+
+My rule now: if the agenda is "updates," it's an email. If there's a decision to argue about, send the context first, then meet for 20 minutes instead of 60.
+
+Since we started doing this, we dropped from 22 recurring meetings to 9. Nobody missed the other 13.
+
+What's one meeting on your calendar this week that could have been an email?

@@ -1,0 +1,28 @@
+Most startups don't die because the idea was bad. They die because the founders ran out of time or money before they learned whether the idea was good.
+
+The same patterns show up again and again:
+
+1. Building before talking to customers. Months go into features nobody asked for. Ten real conversations with people who have the problem are worth more than ten months of code.
+
+2. Confusing "nice to have" with "I'd pay for this." If people say "that's cool," that is not a signal. Ask for money, a pilot, or a date on the calendar.
+
+3. Running out of cash before finding traction. The burn rate gets set by hope instead of by the revenue curve. Founders stretch the runway instead of cutting the plan.
+
+4. Team problems. Unclear roles, equity disputes, or a co-founder who can no longer make hard calls. Many teams break on people long before they break on product.
+
+5. Scaling too early. Hiring, paid marketing, and big infrastructure bets made for 10,000 users when 12 people actually use the product.
+
+6. Ignoring unit economics. Growth that loses money on every customer is just a faster way to run out of cash.
+
+7. Quitting the wrong thing. Some founders abandon the idea that was working because a new one feels more exciting. Others hold on to a dead idea out of pride.
+
+The fix is rarely "work harder." It is shorter feedback loops:
+
+- Talk to customers every week, and write down what they say before you pitch them anything.
+- Frame each experiment around one question, such as "will 20 people pay $50 this month?"
+- Know your runway in months, and make a decision well before it reaches zero.
+- Decide in advance what evidence would make you stop or change direction.
+
+The startups that survive are rarely the smartest. They are the ones that learn fastest and still have enough cash left to act on what they learn.
+
+Which assumption in your business have you not tested yet?

@@ -1,0 +1,21 @@
+Most product decisions I have seen go wrong for the same reason: the team built what they assumed customers wanted.
+
+Customer feedback is the cheapest research you will ever get, and the most honest. Customers do not care about your roadmap or the feature you spent three weeks on. They tell you what is confusing, what is missing, and what they actually use.
+
+A few things I have learned about making feedback work:
+
+1. Ask about past behavior, not opinions. "What did you try last week to solve this?" beats "Would you use this feature?" Almost everyone says yes to hypothetical features.
+
+2. Listen for the problem behind the request. Customers often propose a solution ("add a dashboard"). The useful part is the pain underneath it. Dig one level deeper before you build anything.
+
+3. Close the loop. When someone takes the time to write to you, tell them what you did with it, even if the answer is no. People who see their feedback acted on become your most loyal users.
+
+4. Look for patterns, not loud voices. One angry email is a signal. Ten people hitting the same wall is a fact.
+
+5. Make it easy to respond. A short question inside the product, asked at the right moment, will get you more useful answers than a quarterly survey nobody opens.
+
+Feedback is not a vote, and you do not have to do everything customers ask for. But ignoring it is the most expensive choice you can make, because the customers who leave rarely tell you why.
+
+What is the best piece of customer feedback you have received, and what did it change? I would like to hear it in the comments.
+
+#CustomerFeedback #ProductManagement #Startups

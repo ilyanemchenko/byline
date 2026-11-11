@@ -9,7 +9,7 @@
     "catalyst", "utilize", "implement", "demonstrate", "methodology", "endeavor", "commence", "unpack",
     "lean into", "leaned into", "leaning into", "double down", "doubled down", "doubling down", "deep dive",
     "circle back", "circled back", "game-changer", "thought leadership",
-    "deeply", "truly", "fundamentally", "inherently", "simply", "literally", "inevitably", "seamless",
+    "deeply", "truly", "fundamentally", "inherently", "literally", "inevitably", "seamless",
     "cutting-edge", "transformative",
     "furthermore", "moreover", "additionally", "that being said", "it's also worth considering",
     "on the flip side", "in addition to this", "building on that point", "this brings us to",
@@ -18,10 +18,12 @@
     "meticulous", "intricate", "supercharge", "turbocharge", "ever-evolving", "plays a crucial role",
     "say goodbye to", "unleash", "reimagined", "redefined", "next level", "transform the way",
     "re:the future of \\w+(?: \\w+)? is here", "effortless", "in just a few clicks", "this changes everything",
-    "built different"
+    "built different",
+    "here is what", "here is where"
   ],
   "endings": ["s", "es", "d", "ed", "ing", "ly"],
   "final_e_endings": ["e", "es", "ed", "ing"],
+  "reader_words": ["you", "your", "you've", "you're", "yours"],
   "closers": [
     "thoughts?", "agree?", "what do you think", "let me know in the comments",
     "would love to hear your thoughts", "what's your experience"
@@ -30,7 +32,8 @@
     "\\bit'?s not\\b[^.!?\\n]{1,80}[.,;:!?]\\s*it'?s\\b",
     "\\bisn'?t\\b[^.!?\\n]{1,60},\\s*it'?s\\b",
     "\\bnot because\\b[^.!?\\n]{1,80}[.;,]\\s*(?:it'?s\\s+)?because\\b",
-    "\\bisn'?t the (?:problem|point|issue)\\b[^.!?\\n]{0,40}[.!?]\\s*[^.!?\\n]{1,60}?\\bis[.!?]"
+    "\\bisn'?t the (?:problem|point|issue)\\b[^.!?\\n]{0,40}[.!?]\\s*[^.!?\\n]{1,60}?\\bis[.!?]",
+    "\\b(?:isn't|aren't|doesn't|don't|wasn't|won't)\\b[^.!?\\n]{1,60}\\.\\s+(?:it's|they're|that's)\\b"
   ],
   "negation_words": [
     "not", "no", "never", "don't", "dont", "doesn't", "didn't", "won't", "can't", "cannot",

@@ -1,0 +1,26 @@
+We launched to silence.
+
+Months of building. A waitlist we were proud of. Launch day came, and the signups trickled in, then stopped. A week later, almost nobody had come back.
+
+It stung. But looking back, the launch didn't fail on launch day. It failed long before, in decisions that felt reasonable at the time.
+
+Here's what I took from it:
+
+1. A waitlist is not demand.
+People will give you an email address for free. Asking them to change how they work is a different request. I counted signups when I should have been counting conversations where someone described the problem in their own words, without me prompting it.
+
+2. I built for the user in my head.
+Every feature made sense to me. Very few of them came from watching a real person struggle with the problem. Now I don't write a line of a feature until I've seen someone hit the wall it's meant to remove.
+
+3. "We'll fix it after launch" adds up.
+Each shortcut was small. Together they made the first ten minutes confusing. People don't give a new product a second chance to explain itself.
+
+4. Launch is a starting line, not a finish line.
+I treated it as the big reveal. The products I admire treat launch as the moment the real learning begins: small, early, repeated.
+
+5. Silence is data.
+Nobody complained, so at first I assumed nothing was wrong. In fact, no complaints meant nobody cared enough to tell me. The fix was to go and ask, one person at a time.
+
+The next version shipped smaller, earlier, to fewer people. It was less exciting. It worked better.
+
+If you've had a launch that landed with a thud, what did it teach you?

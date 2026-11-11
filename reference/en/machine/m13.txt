@@ -1,0 +1,19 @@
+The job title "software engineer" is not going away. The job itself is changing faster than most of us expected.
+
+A year ago, the bottleneck was typing code. Today, a good engineer with AI tools can draft a feature, write the tests, and open a pull request before lunch. That is real, and it is a little uncomfortable. But writing code was never the hard part of the work. The hard part was always knowing what to build, why it matters, and how the pieces fit together when something breaks at 2 a.m.
+
+Here is where I think software engineering is heading:
+
+1. Judgment becomes the core skill. When code is cheap to produce, the scarce resource is the person who can say "this is the wrong thing to build" before anyone spends a month on it.
+
+2. Reading code matters more than writing it. Engineers will spend more time reviewing, verifying, and understanding generated code. Teams that can review quickly and honestly will move faster than teams that can only generate quickly.
+
+3. Specifications get sharper. Vague requirements used to get fixed by a developer asking questions in the middle of a sprint. Now a vague request produces confident-looking code that is wrong. Clear problem statements and acceptance criteria turn into a real engineering skill.
+
+4. Testing and observability become the safety net. If AI writes a large share of the changes, the systems that catch mistakes in production are what keep customers safe.
+
+5. Product sense and communication move into the engineering role. The engineers who explain trade-offs in plain language to founders, designers, and customers will have an outsized impact.
+
+I do not think we need fewer people who understand software. I think we need more people who understand what software is for, and fewer people who only know how to type it.
+
+What part of your daily work has changed the most in the last year? I am genuinely curious how other engineers are adjusting.

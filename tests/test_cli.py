@@ -33,6 +33,14 @@ def test_every_flag_is_printed_with_its_line(run):
     assert re.search(r"line 3\s+vocab\s+\"leverage\"", out)
 
 
+def test_template_flags_come_first_under_whole_post(run):
+    out = run(["--lang", "en"], stdin=SLOP).stdout.splitlines()
+    whole, first_paragraph = out.index("Whole post"), next(i for i, l in enumerate(out) if l.startswith("Paragraph"))
+    assert whole < first_paragraph
+    assert any("closer" in line for line in out[whole:first_paragraph])
+    assert not any("closer" in line for line in out[first_paragraph:])
+
+
 def test_json_output(run):
     data = json.loads(run(["--json", "--lang", "en"], stdin=SLOP).stdout)
     assert set(data) == {"label", "score", "language", "language_status", "words", "paragraphs", "markers",

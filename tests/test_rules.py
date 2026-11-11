@@ -28,6 +28,13 @@ def test_validate_names_the_problem():
     assert "status" in problems and "Leverage" in problems and "re:(" in problems
 
 
+def test_reader_words_are_optional_and_checked():
+    base = {"code": "en", "name": "English", "status": "beta", "detect_markers": [], "vocab": []}
+    assert rules.validate(dict(base, reader_words=["you", "ваш*"])) == []
+    assert "You" in " ".join(rules.validate(dict(base, reader_words=["You"])))
+    assert "you" in rules.load("en").reader_words and rules.load("ru").reader_stems == ("ваш",)
+
+
 def test_status_and_thresholds():
     assert rules.load("en").status == "measured" and rules.load("en").thresholds.dash_per_100_max == 1.0
     assert rules.load("ru").status == "beta" and rules.load("ru").thresholds.dash_min_count == 4

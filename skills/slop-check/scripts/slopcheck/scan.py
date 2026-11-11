@@ -2,8 +2,10 @@
 
 ``scan`` reads the text the way a reader notices machine prose: vocabulary markers,
 dashes per hundred words, the contrast formula ("it's not X, it's Y") anywhere but the
-opening sentence, lists of three, runs of fragments, a closing cliché ("Thoughts?"),
-and two channel facts: hashtags over the maximum and the character limit.
+opening sentence, lists of three, runs of fragments, and two channel facts: hashtags over the
+maximum and the character limit. On top of these local markers it looks for the template of a
+whole post (``template.py``): a setup line, a list of slogans, a run of contrasts, a closing
+question to the reader, a row of hashtags. Each template code counts once.
 
 One marker is never a verdict. A paragraph is flagged at ``density_markers`` markers,
 and the score weighs flagged paragraphs above loose markers. Stacked lists of three
@@ -17,21 +19,24 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import List, Optional, Tuple
 
-from . import rules
+from . import rules, template
 from .rhythm import dashes, fragment_runs, triads
 from .rules import Language, Thresholds
-from .text import (HASHTAG, LETTER, URL, blank, clause_starts, inside_any, line_of, negated, normalize,
+from .text import (HASHTAG, clause_starts, inside_any, line_of, negated, normalize,
                    paragraph_of, paragraph_spans, quoted_spans, rhythm_text, sentence_spans, words)
 
-MARKER_CODES = ("vocab", "contrast", "triad", "fragments", "closer", "dash", "hashtags")
+MARKER_CODES = ("vocab", "contrast", "triad", "fragments", "dash", "hashtags")
+TEMPLATE_CODES = template.TEMPLATE_CODES
 # Markers that count towards flagging a paragraph; the dash flag adds one more.
 DENSITY_CODES = ("vocab", "contrast", "triad", "fragments")
 
-# score = min(SCORE_MAX, PARAGRAPH_WEIGHT * flagged + round(MARKER_WEIGHT * markers * min(1, WORDS_SCALE / words)))
+# score = min(SCORE_MAX, PARAGRAPH_WEIGHT * flagged + round(MARKER_WEIGHT * markers * min(1, WORDS_SCALE / words))
+#             + TEMPLATE_WEIGHT * templates), where templates is the number of distinct template codes.
 SCORE_MAX = 100
 PARAGRAPH_WEIGHT = 25
 MARKER_WEIGHT = 3
 WORDS_SCALE = 200
+TEMPLATE_WEIGHT = 15  # below SOME_FROM: one template pattern alone never leaves "clean"
 # label: below SOME_FROM is "clean", below HEAVY_FROM is "some", else "heavy".
 SOME_FROM = 20
 HEAVY_FROM = 50
@@ -72,10 +77,11 @@ class Report:
     notes: list = field(default_factory=list)
 
 
-def score_of(flagged: int, markers: int, words: int) -> int:
-    """Flagged paragraphs weigh most; loose markers weigh less in a long text."""
+def score_of(flagged: int, markers: int, words: int, templates: int = 0) -> int:
+    """Flagged paragraphs and template patterns weigh most; loose markers weigh less in a long text."""
     scale = min(1.0, WORDS_SCALE / max(words, 1))
-    return min(SCORE_MAX, PARAGRAPH_WEIGHT * flagged + round(MARKER_WEIGHT * markers * scale))
+    return min(SCORE_MAX, PARAGRAPH_WEIGHT * flagged + round(MARKER_WEIGHT * markers * scale)
+               + TEMPLATE_WEIGHT * templates)
 
 
 def label_of(score: int) -> str:
@@ -145,23 +151,6 @@ def _contrast(norm: str, text: str, lang: Language, sentences: List[Span], start
     return found
 
 
-def _closer(norm: str, text: str, lang: Language, starts: List[int]) -> Optional[Flag]:
-    """A closing cliché on the last line that has letters once hashtags and links are blanked."""
-    if lang.closers is None:
-        return None
-    cursor = len(norm)
-    while cursor > 0:
-        line_start = norm.rfind("\n", 0, cursor) + 1
-        line = blank(blank(norm[line_start:cursor], HASHTAG), URL)
-        if LETTER.search(line):
-            match = lang.closers.search(line)
-            if match is None:
-                return None
-            return _flag("closer", text, line_start + match.start(), line_start + match.end(), starts)
-        cursor = line_start - 1
-    return None
-
-
 def _flagged_paragraphs(flags: List[Flag], dash_offsets: List[int], dash_flagged: bool,
                         paragraph_count: int, starts: List[int], th: Thresholds) -> List[int]:
     counts = [0] * paragraph_count
@@ -181,6 +170,18 @@ def _flagged_paragraphs(flags: List[Flag], dash_offsets: List[int], dash_flagged
     if triads_per and (max(triads_per) >= 2 or sum(triads_per) >= 3):
         flagged.add(triads_per.index(max(triads_per)))  # stacked lists of three
     return sorted(flagged)
+
+
+def _templates(norm: str, text: str, rhythm: str, lang: Optional[Language], flags: List[Flag],
+               starts: List[int]) -> List[Flag]:
+    spans = [("setup", span) for span in template.setups(rhythm)]
+    spans += [("maxim_list", span) for span in template.maxim_lists(norm)]
+    run = template.contrast_run([(item.start, item.end) for item in flags if item.code == "contrast"])
+    closer = template.closer(norm, lang)
+    row = template.hashtag_row(norm)
+    spans += [(code, span) for code, span in (("contrast_run", run), ("closer", closer), ("hashtag_row", row))
+              if span is not None]
+    return [_flag(code, text, start, end, starts) for code, (start, end) in spans]
 
 
 # ── the scan ──────────────────────────────────────────────────────────────────
@@ -230,9 +231,6 @@ def scan(text: str, *, language: Optional[str] = None, channel: Optional[str] = 
     if lang is not None:
         flags += _vocab_hits(norm, text, lang, quotes, clauses, starts)
         flags += _contrast(norm, text, lang, sentences, starts)
-        closer = _closer(norm, text, lang, starts)
-        if closer is not None:
-            flags.append(closer)
     triad_spans, covered = triads(rhythm, rhythm_sentences, paragraphs, lang, th)
     flags += [_flag("triad", text, start, end, starts) for start, end in triad_spans]
     flags += [_flag("fragments", text, start, end, starts)
@@ -247,6 +245,7 @@ def scan(text: str, *, language: Optional[str] = None, channel: Optional[str] = 
         flags.append(_flag("hashtags", text, first_tag.start(), first_tag.end(), starts))
     if over_limit_by:
         flags.append(_flag("over_limit", text, len(text) - over_limit_by, len(text), starts))
+    flags += _templates(norm, text, rhythm, lang, flags, starts)
 
     report.flagged_paragraphs = _flagged_paragraphs(flags, dash_offsets, dash_flagged, len(paragraphs), starts, th)
     for index in report.flagged_paragraphs:
@@ -254,7 +253,9 @@ def scan(text: str, *, language: Optional[str] = None, channel: Optional[str] = 
         flags.append(_flag("density", text, start, end, starts))
 
     report.flags = sorted(flags, key=lambda item: (item.start, item.code))
-    report.markers = sum(1 for item in flags if item.code in MARKER_CODES)
-    report.score = score_of(len(report.flagged_paragraphs), report.markers, word_count)
+    local = sum(1 for item in flags if item.code in MARKER_CODES)
+    templates = len({item.code for item in flags if item.code in TEMPLATE_CODES})
+    report.markers = local + templates
+    report.score = score_of(len(report.flagged_paragraphs), local, word_count, templates)
     report.label = label_of(report.score)
     return report
