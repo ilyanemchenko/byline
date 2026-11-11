@@ -82,3 +82,27 @@ def test_language_without_rules_gets_structure_checks_and_a_note():
 def test_flags_carry_line_and_paragraph():
     f = scan.scan("Fine line here.\n\nWe leverage it.", language="en").flags[0]
     assert (f.code, f.text.lower(), f.line, f.paragraph) == ("vocab", "leverage", 3, 1)
+
+
+def test_dashes_inside_bullets_count():
+    text = "Our week:\n\n- Speed — we ship weekly\n- Care — we answer fast\n- Focus — one goal\n\n" + "word " * 20
+    assert scan.scan(text, language="en").dash_count == 3
+
+
+def test_unknown_language_code_gets_structure_checks_and_a_note():
+    r = scan.scan("Simple. Fast. Done.\n\nWe leverage it.", language="xx")
+    assert r.language is None and r.language_status is None
+    assert "triad" in codes(r) and "vocab" not in codes(r)
+    assert any("docs/add-a-language.md" in note for note in r.notes)
+
+
+@pytest.mark.parametrize("language", ["", "   "])
+def test_blank_language_means_detect(language):
+    r = scan.scan("We leverage the plan and that is it for the week, with this and you.", language=language)
+    assert r.language == "en"
+
+
+@pytest.mark.parametrize("text", ["", "  \n\n \t"])
+def test_empty_text_is_clean(text):
+    r = scan.scan(text, language="en")
+    assert (r.label, r.score, r.flags) == ("clean", 0, [])

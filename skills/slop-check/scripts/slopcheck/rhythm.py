@@ -1,9 +1,10 @@
 """Rhythm detectors: dashes, lists of three and runs of fragments.
 
-The detectors read the prose-only text of ``text.rhythm_text``, where a heading is
-not a sentence and a bullet list is not three fragments. They return offsets and
-spans into that text, which are also offsets into the original text; the scan
-builds the flags.
+The list and fragment detectors read the prose-only text of ``text.rhythm_text``,
+where a heading is not a sentence and a bullet list is not three fragments.
+``dashes`` reads the whole normalised text, so a dash inside a bullet line counts;
+it skips a dash that opens its line. All return offsets and spans that are also
+offsets into the original text; the scan builds the flags.
 
 Word sets come from a ``Language`` and limits from ``Thresholds``. With no
 language the word sets are empty and the detectors still run on structure alone.

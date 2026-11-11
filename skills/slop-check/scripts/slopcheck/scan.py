@@ -95,7 +95,7 @@ def _channel(channel: Optional[str]) -> Optional[rules.Channel]:
 
 
 def _language(text: str, language: Optional[str]) -> Optional[Language]:
-    code = rules.detect(text) if language is None else language.strip().lower()
+    code = (language or "").strip().lower() or rules.detect(text)
     if code is None or code not in rules.available():
         return None
     return rules.load(code)
@@ -187,13 +187,16 @@ def _flagged_paragraphs(flags: List[Flag], dash_offsets: List[int], dash_flagged
 
 
 def scan(text: str, *, language: Optional[str] = None, channel: Optional[str] = None) -> Report:
-    """Measure one text; see the module docstring for what is counted."""
+    """Measure one text; see the module docstring for what is counted.
+
+    An explicit ``language`` overrides the text's own script; empty or blank means detect.
+    """
     spec = _channel(channel)
     norm = normalize(text)
     paragraphs = paragraph_spans(norm)
     starts = [start for start, _end in paragraphs]
     word_count = words(norm)
-    dash_offsets = dashes(rhythm_text(norm))
+    dash_offsets = dashes(norm)
     over_limit_by = max(0, len(text) - spec.char_limit) if spec is not None and spec.char_limit is not None else 0
     report = Report(
         language=None,
