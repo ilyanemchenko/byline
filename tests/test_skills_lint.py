@@ -38,7 +38,7 @@ def front(name: str) -> Dict[str, str]:
 
 
 def test_only_expected_skills():
-    assert set(SKILLS) <= set(EXPECTED)  # Task 13 turns this into SKILLS == EXPECTED
+    assert SKILLS == EXPECTED
 
 
 @pytest.mark.parametrize("name", SKILLS)
@@ -69,5 +69,5 @@ def test_no_invention_rule_is_verbatim(name):
 
 def test_channel_copies_are_identical():
     a, b = ROOT / "skills/post-writer/channels.md", ROOT / "skills/post-editor/channels.md"
-    if a.exists() and b.exists():
-        assert a.read_bytes() == b.read_bytes()
+    assert a.exists() and b.exists()
+    assert a.read_bytes() == b.read_bytes()
