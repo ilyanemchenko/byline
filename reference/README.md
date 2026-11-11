@@ -89,6 +89,9 @@ A separate agent collected these 10 texts by a fixed rule, without running any c
 - Each text starts at the first body paragraph and stops before the block that would pass 450 words.
   Quotations, reader submissions and page furniture are dropped; footnote and date marks are removed.
 
+Unlike the tuning excerpts, which leave headings out, these holdout excerpts keep subheadings as their
+own lines (a subheading is kept only together with the paragraph after it).
+
 Its log is `holdout-selection.md`. The log numbers the texts h21–h30; they were renumbered h27–h36 in the
 same order when they were added here. The manifest's `words` uses the checker's own word count, so it can
 differ by a few words from the log, which counted whitespace tokens.
@@ -164,6 +167,9 @@ became the tuning set. A fresh holdout of 10 human and 10 machine texts was coll
 does not control. It was run once against the frozen commit 5c06f25, on 2026-11-11. Result: human
 10 clean (0 `some`, 0 `heavy`); machine 7 `some`, 3 `clean`. **The bar passed**, with the machine side at
 exactly the minimum of 7. Details are in `RESULTS.md`.
+
+This holdout is now spent. Any future change to a rule, constant or pattern has to be judged on a new
+holdout, collected and run the same way.
 
 Tuning rules:
 
