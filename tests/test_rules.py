@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 
 import pytest
+from samples import SLOP
 
 from slopcheck import rules
 
@@ -42,6 +43,11 @@ def test_unknown_language():
     ("Hola, esto es una prueba de texto para ver que pasa con el idioma aqui.", None),
     ("Het huis is in de stad of in het dorp en het is groot.", None),
     ("Shipping is hard. Do it anyway.", None),
+    (SLOP, "en"),
+    ("Most startups fail because they build what nobody wants.", "en"),
+    ("Ми випустили цю функцію минулого тижня, і це вже видно по цифрах. "
+     "Якщо клієнт пише в підтримку, то тільки коли щось зламалося.", None),
+    ("Das Team hat diese Funktion letzte Woche veröffentlicht, und man kann sehen, dass sie funktioniert.", None),
 ])
 def test_detect(text, expected):
     assert rules.detect(text) == expected

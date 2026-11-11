@@ -59,7 +59,10 @@ def _language(code: Optional[str]) -> Optional[str]:
 
 
 def _channel(name: Optional[str]) -> Optional[str]:
-    if name is not None and name not in rules.channels():
+    if name is None or not name.strip():
+        return None
+    name = name.strip().lower()
+    if name not in rules.channels():
         raise Problem(f"unknown channel {name!r}; valid channels: {', '.join(sorted(rules.channels()))}")
     return name
 

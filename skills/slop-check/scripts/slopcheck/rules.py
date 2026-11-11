@@ -25,7 +25,7 @@ _PLAIN_LISTS = ("detect_markers", "endings", "final_e_endings", "closers", "nega
 _REGEX_LISTS = ("contrast", "negation_phrases")
 
 # detect: a language needs this many distinct markers, and this lead over the runner-up.
-DETECT_MIN_MARKERS = 4
+DETECT_MIN_MARKERS = 3
 DETECT_MIN_LEAD = 2
 
 

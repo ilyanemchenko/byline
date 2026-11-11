@@ -40,6 +40,21 @@ def test_json_output(run):
     assert data["label"] == "heavy" and set(data["flags"][0]) == {"code", "line", "paragraph", "start", "end", "text"}
 
 
+def test_english_is_detected_without_lang(run):
+    data = json.loads(run(["--json"], stdin=SLOP).stdout)
+    assert data["language"] == "en" and data["label"] == "heavy"
+
+
+def test_channel_is_trimmed_and_lower_cased(run):
+    out = run(["--channel", " X ", "--lang", "en"], stdin="a" * 300)
+    assert out.returncode == 0 and "over_limit" in out.stdout
+
+
+def test_unknown_language_line_is_short(run):
+    out = run([], stdin="12345 67890").stdout.splitlines()
+    assert out[1].startswith("Language: unknown,") and "not recognised" not in out[1]
+
+
 def test_file_argument_and_dash(run, tmp_path):
     (tmp_path / "post.md").write_text(SLOP, encoding="utf-8")
     assert run(["post.md", "--json"]).stdout == run(["-", "--json"], stdin=SLOP).stdout

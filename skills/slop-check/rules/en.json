@@ -2,7 +2,7 @@
   "code": "en",
   "name": "English",
   "status": "measured",
-  "detect_markers": ["the", "and", "that", "with", "this", "for", "have", "you", "but", "are"],
+  "detect_markers": ["the", "and", "that", "with", "this", "you", "but", "are", "not", "from", "they", "what", "about", "when", "your", "can", "would", "there", "their", "been", "more", "our", "how", "than", "just", "into", "because", "here", "every", "it's", "most", "must", "should", "which", "these", "those", "were", "does", "don't"],
   "vocab": [
     "leverage", "navigate", "unlock", "empower", "delve", "synergy", "streamline", "foster", "robust",
     "holistic", "nuanced", "landscape", "paradigm", "resonate", "comprehensive", "facilitate", "optimize",

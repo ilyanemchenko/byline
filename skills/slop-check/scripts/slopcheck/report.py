@@ -29,7 +29,7 @@ def _count(number: int, noun: str) -> str:
 
 def _language_line(report: Report) -> str:
     if report.language is None:
-        language = "Language: not recognised"
+        language = "Language: unknown"  # the scan's note explains what was checked
     else:
         language = f"Language: {rules.load(report.language).name} ({report.language_status})"
     return (f"{language}, {_count(report.words, 'word')}, {_count(report.paragraphs, 'paragraph')}, "
