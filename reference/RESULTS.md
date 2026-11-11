@@ -29,9 +29,23 @@ not `clean`.
 | machine (20) | 1 | 16 | 3 |
 
 Machine texts not clean: 19 of 20 (95%). The one clean machine text is m19 (one template pattern, score 15).
-Human scores, highest first: h21 18; h09, h14, h22 17; h02, h04, h07, h12, h17 15; the rest 3 or less.
+Human scores, highest first: h21 18; h09, h22 17; h02, h04, h07, h12, h14, h17 15; the rest 3 or less.
 Nine human texts carry one template pattern, mostly a `setup` line ("Here's what happens:",
 "Is this easy? No."), so they score 15–18, just under the `some` band at 20.
 
 `TEMPLATE_WEIGHT` on the tuning set: at 10 → humans 26 clean, machine 18 not clean; at 15 → 26 / 19;
 at 18 → 4 humans `some`. It stays 15.
+
+### Admission check of the kept lexical changes
+
+Once the first holdout was folded in, the three lexical changes kept from Task 7 were checked again
+against the whole tuning set, with the same rule: at least 3 tuning machine texts, no tuning human text.
+
+- Contrast shape "X isn't Y. It's Z": the shape with `isn't|aren't|doesn't|don't|wasn't|won't` fired on
+  human h14 ("don't feel like doing anything … It's almost as if"). It was narrowed to the copula only,
+  `isn't|aren't … . It's|They're|That's`, which finds 6 machine texts (8 hits) and no human text.
+- "here is what": 8 machine texts, no human text. It is kept.
+- "here is where": 1 machine text, no human text. It falls short of 3 machine texts and is removed.
+- The removal of "simply" stands.
+
+The class totals above did not change. h14 went from 17 to 15, and m13 from 32 to 30.

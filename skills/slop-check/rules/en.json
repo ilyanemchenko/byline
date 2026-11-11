@@ -19,7 +19,7 @@
     "say goodbye to", "unleash", "reimagined", "redefined", "next level", "transform the way",
     "re:the future of \\w+(?: \\w+)? is here", "effortless", "in just a few clicks", "this changes everything",
     "built different",
-    "here is what", "here is where"
+    "here is what"
   ],
   "endings": ["s", "es", "d", "ed", "ing", "ly"],
   "final_e_endings": ["e", "es", "ed", "ing"],
@@ -33,7 +33,7 @@
     "\\bisn'?t\\b[^.!?\\n]{1,60},\\s*it'?s\\b",
     "\\bnot because\\b[^.!?\\n]{1,80}[.;,]\\s*(?:it'?s\\s+)?because\\b",
     "\\bisn'?t the (?:problem|point|issue)\\b[^.!?\\n]{0,40}[.!?]\\s*[^.!?\\n]{1,60}?\\bis[.!?]",
-    "\\b(?:isn't|aren't|doesn't|don't|wasn't|won't)\\b[^.!?\\n]{1,60}\\.\\s+(?:it's|they're|that's)\\b"
+    "\\b(?:isn't|aren't)\\b[^.!?\\n]{1,60}\\.\\s+(?:it's|they're|that's)\\b"
   ],
   "negation_words": [
     "not", "no", "never", "don't", "dont", "doesn't", "didn't", "won't", "can't", "cannot",
