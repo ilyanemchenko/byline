@@ -31,8 +31,9 @@ two ways on:
 
 1. Run the `person-interview` skill (about ten minutes of questions), then come back.
 2. Paste a few facts about their work now. If `byline/person.md` exists, never replace it: add the
-   facts to it as a new `## Facts` section with `F1`, `F2`, ..., and keep every existing section,
-   entry and id as it is, the `## Off limits` entries above all. Only if there is no file, save them
+   facts to it as a new `## Facts` section with `F1`, `F2`, ..., after `## Basics` and before
+   `## Stories` (the template's order), and keep every existing section, entry and id as it is, the
+   `## Off limits` entries above all. Only if there is no file, save them
    as a minimal `byline/person.md` in the standard format (create the folder `byline/` if needed):
    the `# Person file` heading, the comment line
    `<!-- byline person file, format 1. Edit it by hand whenever you like. -->`, `## Basics` with the
@@ -62,8 +63,8 @@ browser you are allowed to use). A tool that only fetches a URL you already have
 3. Open each candidate source before using it. Report only what the source says. If a source cannot
    be opened, use only what the search result itself shows, and drop the item when its date or its
    claim is not visible there. A source is first-hand or independent reporting: a regulator, a
-   standards body, a study, a named publication. A vendor's own promotion is not a source for "why
-   now".
+   standards body, a study, a named publication. A vendor's own study or data counts only when it is
+   published with its method; a vendor's announcement or promotion never does.
 4. For each item, find the fact or story id it connects to: the person has done, seen or measured
    something that bears on it. No id, no topic.
 5. Drop items that do not serve the `Goal` line: news the target reader would not care about, or
@@ -72,12 +73,13 @@ browser you are allowed to use). A tool that only fetches a URL you already have
    is short; do not pad with older or unlinked items. If fewer than three survive, or none at all,
    say why (no recent items, none tied to an id, none serving the `Goal`) and add evergreen topics
    built as in Step 3b, leaving out its no-search first line, until there are at least three. Label
-   each topic `(news)` or `(evergreen)` after its title.
+   each topic `(news)` or `(evergreen)` after its title, as in the format below.
 
-Format each topic like this:
+Format each topic like this (an evergreen one keeps its Step 3b lines, with `(evergreen)` in the
+same place):
 
 ```
-1. <topic in a few words>
+1. <topic in a few words> (news)
    Why now: <one sentence on what happened, with the date>
    Source: <link>
    Connects to: F3 (<a few words of the fact>)
@@ -106,7 +108,7 @@ Ask which topic they want to take further, then offer the `angle-brainstorm` ski
 ## Example (invented person: a clinic software consultant, Goal: find clinic clients)
 
 ```
-1. Patients booking by message app
+1. Patients booking by message app (news)
    Why now: A national survey published on 3 November found most patients under 40 prefer to book by message.
    Source: https://example.org/survey-2026
    Connects to: F1 (no-shows from 22% to 9% after SMS reminders)

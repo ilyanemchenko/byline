@@ -34,8 +34,9 @@ two ways on:
 
 1. Run the `person-interview` skill (about ten minutes of questions), then come back.
 2. Paste a few facts about their work now. If `byline/person.md` exists, never replace it: add the
-   facts to it as a new `## Facts` section with `F1`, `F2`, ..., and keep every existing section,
-   entry and id as it is, the `## Off limits` entries above all. Only if there is no file, save them
+   facts to it as a new `## Facts` section with `F1`, `F2`, ..., after `## Basics` and before
+   `## Stories` (the template's order), and keep every existing section, entry and id as it is, the
+   `## Off limits` entries above all. Only if there is no file, save them
    as a minimal `byline/person.md` in the standard format (create the folder `byline/` if needed):
    the `# Person file` heading, the comment line
    `<!-- byline person file, format 1. Edit it by hand whenever you like. -->`, `## Basics` with the

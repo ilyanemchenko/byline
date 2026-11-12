@@ -30,8 +30,9 @@ draft against. Say what is missing and offer two ways on:
 
 1. Run the `person-interview` skill (about ten minutes of questions), then come back.
 2. Paste a few facts about their work now. If `byline/person.md` exists, never replace it: add the
-   facts to it as a new `## Facts` section with `F1`, `F2`, ..., and keep every existing section,
-   entry and id as it is, the `## Off limits` entries above all. Only if there is no file, save them
+   facts to it as a new `## Facts` section with `F1`, `F2`, ..., after `## Basics` and before
+   `## Stories` (the template's order), and keep every existing section, entry and id as it is, the
+   `## Off limits` entries above all. Only if there is no file, save them
    as a minimal `byline/person.md` in the standard format (create the folder `byline/` if needed):
    the `# Person file` heading, the comment line
    `<!-- byline person file, format 1. Edit it by hand whenever you like. -->`, `## Basics` with the
@@ -110,10 +111,13 @@ Go through every claim that is not confirmed, in draft order, one question per m
     confirmed with that id (or confirmed by the person, if they decline to append it).
   - It is not, or they ask to cut it: that is their decision to cut. Remove that claim's words from
     the draft and say what was removed.
-  - They are not sure: offer the suggestion from Step 5 as the next question.
+  - They are not sure: if the Step 5 suggestion is `reword`, offer that wording as the next question;
+    otherwise offer a cut. If they decline, the claim stays in: say plainly that an unconfirmed claim
+    is still in the draft.
 - **`contradicts`:** show the entry and ask which is right, the entry or the draft. If the entry is,
   apply the rewording built from it. If the draft is, leave it and offer to correct the entry, keeping
-  its id; change the entry only on yes.
+  its id; change the entry only on yes. If they decline, say plainly that the draft and the file still
+  disagree.
 - **`off limits`:** ask whether to cut it. Yes: remove that claim's words and say what was removed.
   No: leave it, and say plainly that the off-limits item is still in the draft.
 

@@ -83,7 +83,8 @@ whether to remove it; remove it only if they say yes.
   and 5 and for any case told as a sequence of events. Trim filler; do not polish or add.
 - **Off limits (`X`):** one line per item, in the person's own words and with the name they used (a
   client, an employer, a product). The other skills recognise the item in a draft by that name, so a
-  description without the name is not enough. If they gave no name, ask for it once; if they will not
+  description without the name is not enough: "a logistics client" is a description, the name is what
+  that client is called. If they gave no name, ask for it once; if they will not
   give it, save their wording and tell them the entry cannot be matched by name.
 - Ids start at `F1`, `S1`, `X1` and count up in the order you record them.
 
