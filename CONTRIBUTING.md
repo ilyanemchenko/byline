@@ -47,6 +47,9 @@ machine texts and in no tuning human text. Then collect a fresh holdout of 10 hu
 texts, by someone who did not tune the rules, run it once, and record the result in
 `reference/RESULTS.md`, pass or fail.
 
+This applies to a measured language (today English) and to the code and constants all languages share.
+A beta language has no holdout: a change to its rules needs tests, and the language stays beta.
+
 ## Report a false alarm
 
 Open an issue with:

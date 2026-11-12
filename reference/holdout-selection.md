@@ -2,8 +2,8 @@
 
 Collected 2026-11-11. Nothing was scored or run through any checker. Word counts are plain whitespace-separated
 tokens of the saved file (list numbers and `- ` markers count), not the checker's tokenizer.
-Pages were fetched with `curl -sL`, one folder per page;
-scripts (`blocks.py` extracts, `cut.py` applies the cut).
+Pages were fetched with `curl -sL`, one folder per page. The text was extracted and cut by scripts kept
+outside the repository; they are not included.
 
 ## Licences (each page re-fetched today)
 
@@ -15,7 +15,7 @@ scripts (`blocks.py` extracts, `cut.py` applies the cut).
 
 All three confirmed. Every Pavlina post chosen is dated before 2024-05-20.
 
-## Rules as applied (decisions the brief left open)
+## Rules as applied (decisions the collection rule left open)
 
 - "First post listed": zenhabits archive (https://zenhabits.net/archives/) lists each month newest first under the
   month heading; the first link under the heading is taken. Pavlina month archive pages
@@ -30,9 +30,7 @@ All three confirmed. Every Pavlina post chosen is dated before 2024-05-20.
 - Blockquote paragraphs and reader submissions count as "mostly a quotation of someone else" and are dropped.
 - Footnote marks removed. Gwern's inline date annotations removed ("4" and "11ya" scripts in date ranges, so
   "2011-2015" stays as the author wrote it). Other sub/superscripts stay as plain text (`log2`).
-- Forbidden strings (the project's list) checked case-insensitively on
-  each saved text: no hit.
-- None of the 10 URLs is in `reference/manifest.json` (human rows checked by script).
+- None of the 10 URLs is in `reference/manifest.json` (human rows checked by a script kept outside the repository).
 
 ## Zenhabits (4)
 
@@ -101,7 +99,7 @@ complement) came before the two chosen.
 ## Order and files
 
 Authors alternate: h21 Babauta, h22 Pavlina, h23 Gwern, h24 Babauta, h25 Pavlina, h26 Gwern, h27 Babauta, h28 Pavlina,
-h29 Babauta, h30 Pavlina. Within an author, files follow the listing order (months ascending as requested; Gwern in
+h29 Babauta, h30 Pavlina. Within an author, files follow the listing order (months ascending; Gwern in
 index order). Word counts 193 to 450.
 
 Texts containing a list: h24 (numbered 1-8) and h29 (numbered 1-4).

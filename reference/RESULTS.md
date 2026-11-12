@@ -1,6 +1,6 @@
 # Results
 
-The release bar, on a holdout the tuner never sees: no human text `heavy`, at most 2 human texts `some`,
+The release bar, on a holdout that whoever tunes the rules never sees: no human text `heavy`, at most 2 human texts `some`,
 at least 7 of 10 machine texts not `clean`.
 
 ## Holdout runs
@@ -9,12 +9,13 @@ Runs 1–3 used the first holdout (the even ids of the first 40 texts); tuning u
 
 | # | Date | Commit | Human heavy | Human some | Machine not clean | Bar | What changed before this run |
 |---|---|---|---|---|---|---|---|
-| 1 | 2026-11-11 | c784869 + reference set (uncommitted) | 0 | 0 | 0 | fail | nothing: the rules as shipped by Tasks 1–6 |
+| 1 | 2026-11-11 | c784869 + reference set (uncommitted) | 0 | 0 | 0 | fail | nothing: the first rules, before any tuning |
 | 2 | 2026-11-11 | c784869 + round 1 (uncommitted) | 0 | 1 (h20) | 6 | fail | round 1: three markers added (closing question to the reader, "here is what/where" at a line start, contrast "isn't X. It's Y"); `MARKER_WEIGHT` 3 → 16 |
 | 3 | 2026-11-11 | c784869 + round 2 (uncommitted) | 0 | 0 | 6 | fail | round 2: "here is what/where" anywhere; `MARKER_WEIGHT` 16 → 17; vocabulary entry "simply" removed (fired on tune human h15) |
 
-After run 3 the first holdout was folded into the tuning set, and a fresh holdout was collected by agents
-the tuner does not control. The next row is the one run of that fresh holdout against the frozen commit.
+After run 3 the first holdout was folded into the tuning set, and a fresh holdout was collected by a
+separate agent that did not tune the rules. The next row is the one run of that fresh holdout against the
+frozen commit.
 
 | # | Date | Commit | Human heavy | Human some | Machine not clean | Bar | What changed before this run |
 |---|---|---|---|---|---|---|---|
@@ -22,8 +23,8 @@ the tuner does not control. The next row is the one run of that fresh holdout ag
 
 ## Fresh holdout (run 4)
 
-This holdout was run once, on 2026-11-11, by the controller (not the tuner), with
-`check.py --lang en --json` against the frozen commit 5c06f25. No rule, constant, pattern or tuning text
+This holdout was run once, on 2026-11-11, by the maintainer (not by the agent that tuned the rules),
+with `check.py --lang en --json` against the frozen commit 5c06f25. No rule, constant, pattern or tuning text
 changed after that run.
 
 | id | label | score | | id | label | score |
@@ -46,6 +47,18 @@ had room to spare: all 10 clean, the highest at 15.
 
 Running `python3 -m pytest tests/test_reference_set.py` on this commit gives the same labels.
 
+### The first checker on the same fresh texts
+
+Runs 1 and 4 used different texts. For a comparison on the same texts, the checker of commit c784869
+(the one run 1 used) was run afterwards on the fresh holdout, on 2026-11-12. This is a comparison only:
+it changes no rule and is not a second run of the bar.
+
+| Commit | Human heavy | Human some | Machine not clean | Bar |
+|---|---|---|---|---|
+| c784869 | 0 | 0 | 0 | would fail |
+
+Its scores: h27–h36 0, 3, 1, 2, 2, 1, 2, 0, 0, 1; m21–m30 3, 0, 0, 0, 0, 2, 2, 2, 0, 0. All 20 are `clean`.
+
 ## Tuning set
 
 All 46 texts in `manifest.json` (26 human, 20 machine) with `split: tune`, measured with the rules in
@@ -64,11 +77,11 @@ Nine human texts carry one template pattern, mostly a `setup` line ("Here's what
 "Is this easy? No."), so they score 15–18, just under the `some` band at 20.
 
 `TEMPLATE_WEIGHT` on the tuning set: at 10 → humans 26 clean, machine 18 not clean; at 15 → 26 / 19;
-at 18 → 4 humans `some`. It stays 15.
+at 18 → 3 humans `some` (h09, h21, h22). It stays 15.
 
 ### Admission check of the kept lexical changes
 
-Once the first holdout was folded in, the three lexical changes kept from Task 7 were checked again
+Once the first holdout was folded in, the three lexical changes kept from tuning rounds 1 and 2 were checked again
 against the whole tuning set, with the same rule: at least 3 tuning machine texts, no tuning human text.
 
 - Contrast shape "X isn't Y. It's Z": the shape with `isn't|aren't|doesn't|don't|wasn't|won't` fired on
@@ -79,3 +92,14 @@ against the whole tuning set, with the same rule: at least 3 tuning machine text
 - The removal of "simply" stands.
 
 The class totals above did not change. h14 went from 17 to 15, and m13 from 32 to 30.
+
+## What the vocabulary list does on this set
+
+On all 66 texts, the vocabulary list fires more often on the human texts than on the machine texts.
+13 of 36 human texts have at least one `vocab` hit ("deeply", "empowering", "leverage", "tapestry",
+"realm", "navigate" and others). In the 30 machine texts the only hit is "here is what", added during
+tuning, in 10 of them. No text in the set has a flagged paragraph, so the paragraph weight of 25 is not
+exercised here. The older entries stay because they weigh little (3 points a hit, less in a long post),
+change no label in this set (every human text is `clean` with them), and still describe the stock words
+of older machine text, which this set does not measure. "here is what" does change two labels: without
+it m08 would be `some` (48) and m11 `clean` (18).

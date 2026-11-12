@@ -1,9 +1,9 @@
 # Reference set
 
-These are the texts that the English rules of the slop check are measured on. Human texts are posts that
-real people published before November 2022. Machine texts are LinkedIn posts that a language model wrote
-from a one-line prompt. A language counts as `measured` only if it has a reference set and passes the
-release bar on a holdout that the tuner never saw.
+These are the texts that the English rules of the slop check are measured on. Human texts are openings
+of blog posts that real people published before November 2022. Machine texts are LinkedIn posts that a
+language model wrote from a one-line prompt. A language counts as `measured` only if it has a reference
+set and passes the release bar on a holdout that the tuner never saw.
 
 This names patterns. It does not say who wrote the text.
 
@@ -108,6 +108,15 @@ differ by a few words from the log, which counted whitespace tokens.
 | h34 | Steve Pavlina | [30 Days of Disneyland – Day 30](https://stevepavlina.com/blog/2016/11/30-days-disneyland-day-30/) | 2016-11-25 | 450 |
 | h35 | Leo Babauta | [Coming Back to Powerful Habits (plus 6 Powerful Habits)](https://zenhabits.net/coming-back/) | 2020-02-28 | 446 |
 | h36 | Steve Pavlina | [Creating the Peer Group I’ve Always Longed for](https://stevepavlina.com/blog/2019/04/creating-the-peer-group-ive-always-longed-for/) | 2019-04-28 | 430 |
+
+**Limits of the human texts:**
+
+- Each one is the **opening of a longer essay**, cut at up to 450 words, so its last line is mid-essay.
+  Two of the five whole-post patterns read a post's last line (`closer`, `hashtag_row`) and so cannot
+  fire on these texts the way they can on a finished post. With those two left out, the holdout result
+  would be 4 of 10 machine texts flagged, not 7 (and 14 of 20 on the tuning set, not 19).
+- The first 20 excerpts (h01–h20) **stop before a list**, so `maxim_list` cannot fire on them.
+- The holdout's human texts are by **the same three authors** as the tuning set.
 
 ## Machine texts
 

@@ -4,6 +4,9 @@ Before release, on 2026-11-11 and 2026-11-12, every skill was run by agents that
 on three invented people. This page records what was checked, what passed, what was not run, and
 what was changed afterwards. The checker script is measured separately, in `reference/RESULTS.md`.
 
+The run logs and instruction files are not published. What is published is this summary and the files
+of one person's run, in `examples/tamsin/`.
+
 ## Method
 
 - **Three invented people.** Tamsin Ashgrove, a warehouse consultant in Bristol (English, LinkedIn);
