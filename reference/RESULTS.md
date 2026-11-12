@@ -9,9 +9,9 @@ Runs 1–3 used the first holdout (the even ids of the first 40 texts); tuning u
 
 | # | Date | Commit | Human heavy | Human some | Machine not clean | Bar | What changed before this run |
 |---|---|---|---|---|---|---|---|
-| 1 | 2026-11-11 | c784869 + reference set (uncommitted) | 0 | 0 | 0 | fail | nothing: the first rules, before any tuning |
-| 2 | 2026-11-11 | c784869 + round 1 (uncommitted) | 0 | 1 (h20) | 6 | fail | round 1: three markers added (closing question to the reader, "here is what/where" at a line start, contrast "isn't X. It's Y"); `MARKER_WEIGHT` 3 → 16 |
-| 3 | 2026-11-11 | c784869 + round 2 (uncommitted) | 0 | 0 | 6 | fail | round 2: "here is what/where" anywhere; `MARKER_WEIGHT` 16 → 17; vocabulary entry "simply" removed (fired on tune human h15) |
+| 1 | 2026-11-11 | 482a8e1 + reference set (uncommitted) | 0 | 0 | 0 | fail | nothing: the first rules, before any tuning |
+| 2 | 2026-11-11 | 482a8e1 + round 1 (uncommitted) | 0 | 1 (h20) | 6 | fail | round 1: three markers added (closing question to the reader, "here is what/where" at a line start, contrast "isn't X. It's Y"); `MARKER_WEIGHT` 3 → 16 |
+| 3 | 2026-11-11 | 482a8e1 + round 2 (uncommitted) | 0 | 0 | 6 | fail | round 2: "here is what/where" anywhere; `MARKER_WEIGHT` 16 → 17; vocabulary entry "simply" removed (fired on tune human h15) |
 
 After run 3 the first holdout was folded into the tuning set, and a fresh holdout was collected by a
 separate agent that did not tune the rules. The next row is the one run of that fresh holdout against the
@@ -19,12 +19,12 @@ frozen commit.
 
 | # | Date | Commit | Human heavy | Human some | Machine not clean | Bar | What changed before this run |
 |---|---|---|---|---|---|---|---|
-| 4 | 2026-11-11 | 5c06f25 | 0 | 0 | 7 | **pass** | fresh holdout (h27–h36, m21–m30); whole-post template patterns, all 46 earlier texts as the tuning set |
+| 4 | 2026-11-11 | 56b643a | 0 | 0 | 7 | **pass** | fresh holdout (h27–h36, m21–m30); whole-post template patterns, all 46 earlier texts as the tuning set |
 
 ## Fresh holdout (run 4)
 
 This holdout was run once, on 2026-11-11, by the maintainer (not by the agent that tuned the rules),
-with `check.py --lang en --json` against the frozen commit 5c06f25. No rule, constant, pattern or tuning text
+with `check.py --lang en --json` against the frozen commit 56b643a. No rule, constant, pattern or tuning text
 changed after that run.
 
 | id | label | score | | id | label | score |
@@ -49,13 +49,13 @@ Running `python3 -m pytest tests/test_reference_set.py` on this commit gives the
 
 ### The first checker on the same fresh texts
 
-Runs 1 and 4 used different texts. For a comparison on the same texts, the checker of commit c784869
+Runs 1 and 4 used different texts. For a comparison on the same texts, the checker of commit 482a8e1
 (the one run 1 used) was run afterwards on the fresh holdout, on 2026-11-12. This is a comparison only:
 it changes no rule and is not a second run of the bar.
 
 | Commit | Human heavy | Human some | Machine not clean | Bar |
 |---|---|---|---|---|
-| c784869 | 0 | 0 | 0 | would fail |
+| 482a8e1 | 0 | 0 | 0 | would fail |
 
 Its scores: h27–h36 0, 3, 1, 2, 2, 1, 2, 0, 0, 1; m21–m30 3, 0, 0, 0, 0, 2, 2, 2, 0, 0. All 20 are `clean`.
 

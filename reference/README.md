@@ -174,7 +174,7 @@ The first 40 texts were split into odd ids (`tune`) and even ids (`holdout`). Th
 the bar (see `RESULTS.md`). The checker then gained whole-post template patterns, and all 46 texts here
 became the tuning set. A fresh holdout of 10 human and 10 machine texts was collected by agents that the
 person or agent who tuned the checker does not control. It was run once against the frozen commit
-5c06f25, on 2026-11-11. Result: human 10 clean (0 `some`, 0 `heavy`); machine 7 `some`, 3 `clean`. **The
+56b643a, on 2026-11-11. Result: human 10 clean (0 `some`, 0 `heavy`); machine 7 `some`, 3 `clean`. **The
 bar passed**, with the machine side at exactly the minimum of 7. Details are in `RESULTS.md`.
 
 This holdout is now spent. Any future change to a rule, constant or pattern has to be judged on a new
