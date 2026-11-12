@@ -71,6 +71,13 @@ def test_hashtags_and_limit_by_channel():
     assert r.over_limit_by == 20 and "over_limit" in codes(r) and r.markers == 0
 
 
+def test_limit_ignores_trailing_line_breaks():
+    r = scan.scan("a" * 280 + "\n", language="en", channel="x")
+    assert r.over_limit_by == 0 and "over_limit" not in codes(r)
+    r = scan.scan("a" * 281 + "\n", language="en", channel="x")
+    assert r.over_limit_by == 1 and [f.text for f in r.flags if f.code == "over_limit"] == ["a"]
+
+
 def test_unknown_channel():
     with pytest.raises(ValueError):
         scan.scan("text", channel="myspace")

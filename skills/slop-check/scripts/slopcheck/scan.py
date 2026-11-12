@@ -198,7 +198,8 @@ def scan(text: str, *, language: Optional[str] = None, channel: Optional[str] = 
     starts = [start for start, _end in paragraphs]
     word_count = words(norm)
     dash_offsets = dashes(norm)
-    over_limit_by = max(0, len(text) - spec.char_limit) if spec is not None and spec.char_limit is not None else 0
+    length = len(text.rstrip())  # a final line break from a file or a heredoc is not part of the post
+    over_limit_by = max(0, length - spec.char_limit) if spec is not None and spec.char_limit is not None else 0
     report = Report(
         language=None,
         language_status=None,
@@ -244,7 +245,7 @@ def scan(text: str, *, language: Optional[str] = None, channel: Optional[str] = 
     if report.hashtag_count > hashtag_max and first_tag is not None:
         flags.append(_flag("hashtags", text, first_tag.start(), first_tag.end(), starts))
     if over_limit_by:
-        flags.append(_flag("over_limit", text, len(text) - over_limit_by, len(text), starts))
+        flags.append(_flag("over_limit", text, length - over_limit_by, length, starts))
     flags += _templates(norm, text, rhythm, lang, flags, starts)
 
     report.flagged_paragraphs = _flagged_paragraphs(flags, dash_offsets, dash_flagged, len(paragraphs), starts, th)
