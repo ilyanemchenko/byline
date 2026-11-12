@@ -29,7 +29,8 @@ a post built on "In March we cut onboarding from 14 days to 3 for a 40-person cl
   still vague, save it as an `S` entry only if it is a case told as a sequence of events; otherwise
   save nothing from it.
 - **Private means off limits.** If at any point the person asks to keep something private or out of
-  posts, do not put it in a fact or story; add it to the off-limits list at once.
+  posts, do not put it in a fact or story; add it to the off-limits list at once, by name (see
+  "Off limits" under "Turning answers into entries").
 - **"Skip" is a fine answer.** Move to the next question without comment.
 
 ## Start: is there a file already?
@@ -80,7 +81,10 @@ whether to remove it; remove it only if they say yes.
   as `F`.
 - **Story (`S`):** two to six sentences, kept close to the person's own words. Use it for answers 3, 4
   and 5 and for any case told as a sequence of events. Trim filler; do not polish or add.
-- **Off limits (`X`):** one line per item.
+- **Off limits (`X`):** one line per item, in the person's own words and with the name they used (a
+  client, an employer, a product). The other skills recognise the item in a draft by that name, so a
+  description without the name is not enough. If they gave no name, ask for it once; if they will not
+  give it, save their wording and tell them the entry cannot be matched by name.
 - Ids start at `F1`, `S1`, `X1` and count up in the order you record them.
 
 ## Saving

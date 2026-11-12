@@ -30,8 +30,11 @@ If `byline/person.md` does not exist, or it has no `## Facts` section, say what 
 two ways on:
 
 1. Run the `person-interview` skill (about ten minutes of questions), then come back.
-2. Paste a few facts about their work now. Save them as a minimal `byline/person.md` in the standard
-   format (create the folder `byline/` if needed): the `# Person file` heading, the comment line
+2. Paste a few facts about their work now. If `byline/person.md` exists, never replace it: add the
+   facts to it as a new `## Facts` section with `F1`, `F2`, ..., and keep every existing section,
+   entry and id as it is, the `## Off limits` entries above all. Only if there is no file, save them
+   as a minimal `byline/person.md` in the standard format (create the folder `byline/` if needed):
+   the `# Person file` heading, the comment line
    `<!-- byline person file, format 1. Edit it by hand whenever you like. -->`, `## Basics` with the
    fields `Name`, `Role`, `Goal`, `Audience`, `Channels`, `Language` (empty where unknown),
    `## Facts` with `F1`, `F2`, ..., `## Stories`, `## Off limits`. Save only what they wrote; show the
@@ -59,6 +62,10 @@ Offer exactly three angles, numbered. Each one has:
 - **Stands on:** the ids it uses (`F2, S1`). At least one id, and every id must exist in the file.
 - **Why this reader cares:** one sentence tied to the `Audience` line and the takeaway from Step 3.
 
+The claim and the "why this reader cares" line say no more than the entries the angle cites: no
+result, contrast or beneficiary that the cited `F` and `S` entries do not state. If the person wants
+the stronger wording, ask for the fact behind it and save it to the file first (Step 5).
+
 Make the three differ in kind, for example one built on a result, one on a mistake or changed belief,
 one that disagrees with common practice in the field.
 
@@ -70,8 +77,8 @@ the gap with a general claim.
 ## Step 5: the pick
 
 The person picks one, changes one, or combines two. Apply their edits as they wrote them. If an edit
-adds a new fact, ask whether to append it to `byline/person.md` with the next free id; cite it only
-once it has an id.
+adds a new fact, ask whether to append it to `byline/person.md`. Its id is the highest existing
+number in that section plus one; never reuse or renumber an id. Cite it only once it has an id.
 
 Channel: if `Channels` lists one channel, use it. If it lists several, or it is empty, ask which one
 this post is for (one question).

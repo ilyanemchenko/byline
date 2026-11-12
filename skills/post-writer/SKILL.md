@@ -33,8 +33,11 @@ If `byline/person.md` does not exist, or it has no `## Facts` section, say what 
 two ways on:
 
 1. Run the `person-interview` skill (about ten minutes of questions), then come back.
-2. Paste a few facts about their work now. Save them as a minimal `byline/person.md` in the standard
-   format (create the folder `byline/` if needed): the `# Person file` heading, the comment line
+2. Paste a few facts about their work now. If `byline/person.md` exists, never replace it: add the
+   facts to it as a new `## Facts` section with `F1`, `F2`, ..., and keep every existing section,
+   entry and id as it is, the `## Off limits` entries above all. Only if there is no file, save them
+   as a minimal `byline/person.md` in the standard format (create the folder `byline/` if needed):
+   the `# Person file` heading, the comment line
    `<!-- byline person file, format 1. Edit it by hand whenever you like. -->`, `## Basics` with the
    fields `Name`, `Role`, `Goal`, `Audience`, `Channels`, `Language` (empty where unknown),
    `## Facts` with `F1`, `F2`, ..., `## Stories`, `## Off limits`. Save only what they wrote; show the
@@ -93,8 +96,9 @@ How the post reads:
 - Formatting only where the channel supports it (see `channels.md`).
 
 Check the length with a count, not by eye. If the `slop-check` skill is available, run its script on
-the post with `--lang` and `--channel`: it reports by how many characters the post is over the
-limit. Otherwise count the characters with a tool. If the post is over the channel's hard limit, cut
+the post with `--lang` and `--channel`: when the post is too long it shows an `over_limit` flag, and
+the flagged text is the part beyond the limit. It prints no count. Otherwise count the characters
+with a tool. If the post is over the channel's hard limit, cut
 it; do not split it into a thread unless the person asks.
 
 ## Step 5: save and show
@@ -105,9 +109,9 @@ it; do not split it into a thread unless the person asks.
    slug of two to five lower-case words from the topic, joined by hyphens. If that file exists, add
    `-2`, `-3` and so on.
 3. Show the post as saved.
-4. Then one line listing the ids the post uses, exactly in this form: `Facts used: F2, S1`. Add any
-   new id appended in Step 3. A fact the person gave in Step 3 but did not want in the file is listed
-   by its words, marked `said in this conversation`:
+4. Then one line listing the ids the post uses, any new id appended in Step 3 included, exactly in
+   one of these two forms: `Facts used: F2, S1`, or, when a fact the person gave in Step 3 did not go
+   into the file, with that fact in their words and marked:
    `Facts used: F2, S1, "about 30 clinics" (said in this conversation)`.
 5. Then one line naming the three checks: `post-fact-check` for every claim about the person,
    `post-editor` for the opening, example and ending, and `slop-check` last, run with the post's

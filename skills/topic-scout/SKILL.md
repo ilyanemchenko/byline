@@ -30,8 +30,11 @@ If `byline/person.md` does not exist, or it has no `## Facts` section, say what 
 two ways on:
 
 1. Run the `person-interview` skill (about ten minutes of questions), then come back.
-2. Paste a few facts about their work now. Save them as a minimal `byline/person.md` in the standard
-   format (create the folder `byline/` if needed): the `# Person file` heading, the comment line
+2. Paste a few facts about their work now. If `byline/person.md` exists, never replace it: add the
+   facts to it as a new `## Facts` section with `F1`, `F2`, ..., and keep every existing section,
+   entry and id as it is, the `## Off limits` entries above all. Only if there is no file, save them
+   as a minimal `byline/person.md` in the standard format (create the folder `byline/` if needed):
+   the `# Person file` heading, the comment line
    `<!-- byline person file, format 1. Edit it by hand whenever you like. -->`, `## Basics` with the
    fields `Name`, `Role`, `Goal`, `Audience`, `Channels`, `Language` (empty where unknown),
    `## Facts` with `F1`, `F2`, ..., `## Stories`, `## Off limits`. Save only what they wrote; show the
@@ -58,15 +61,18 @@ browser you are allowed to use). A tool that only fetches a URL you already have
    Check the date on the page itself; if you cannot find a date, drop the item.
 3. Open each candidate source before using it. Report only what the source says. If a source cannot
    be opened, use only what the search result itself shows, and drop the item when its date or its
-   claim is not visible there.
+   claim is not visible there. A source is first-hand or independent reporting: a regulator, a
+   standards body, a study, a named publication. A vendor's own promotion is not a source for "why
+   now".
 4. For each item, find the fact or story id it connects to: the person has done, seen or measured
    something that bears on it. No id, no topic.
 5. Drop items that do not serve the `Goal` line: news the target reader would not care about, or
    that pulls the person toward a field they did not name.
 6. Offer five to seven topics. If fewer than five survive, offer what you have and say why the list
-   is short; do not pad with older or unlinked items. If no topic survives, say why (no recent
-   items, none tied to an id, none serving the `Goal`) and go to Step 3b for evergreen topics,
-   leaving out its no-search first line.
+   is short; do not pad with older or unlinked items. If fewer than three survive, or none at all,
+   say why (no recent items, none tied to an id, none serving the `Goal`) and add evergreen topics
+   built as in Step 3b, leaving out its no-search first line, until there are at least three. Label
+   each topic `(news)` or `(evergreen)` after its title.
 
 Format each topic like this:
 

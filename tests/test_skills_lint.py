@@ -67,6 +67,11 @@ def test_no_invention_rule_is_verbatim(name):
     assert "Never invent a number, client, result, event or title." in body(name)
 
 
+@pytest.mark.parametrize("name", SKILLS)
+def test_no_skill_says_next_free_id(name):
+    assert "next free id" not in body(name)
+
+
 def test_channel_copies_are_identical():
     a, b = ROOT / "skills/post-writer/channels.md", ROOT / "skills/post-editor/channels.md"
     assert a.exists() and b.exists()

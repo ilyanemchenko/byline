@@ -29,8 +29,11 @@ If `byline/person.md` does not exist, or it has no `## Facts` section, there is 
 draft against. Say what is missing and offer two ways on:
 
 1. Run the `person-interview` skill (about ten minutes of questions), then come back.
-2. Paste a few facts about their work now. Save them as a minimal `byline/person.md` in the standard
-   format (create the folder `byline/` if needed): the `# Person file` heading, the comment line
+2. Paste a few facts about their work now. If `byline/person.md` exists, never replace it: add the
+   facts to it as a new `## Facts` section with `F1`, `F2`, ..., and keep every existing section,
+   entry and id as it is, the `## Off limits` entries above all. Only if there is no file, save them
+   as a minimal `byline/person.md` in the standard format (create the folder `byline/` if needed):
+   the `# Person file` heading, the comment line
    `<!-- byline person file, format 1. Edit it by hand whenever you like. -->`, `## Basics` with the
    fields `Name`, `Role`, `Goal`, `Audience`, `Channels`, `Language` (empty where unknown),
    `## Facts` with `F1`, `F2`, ..., `## Stories`, `## Off limits`. Save only what they wrote; show the
@@ -94,23 +97,28 @@ For every claim that is not confirmed, suggest one of:
 - **ask:** only the person knows whether it is true;
 - **reword:** an entry supports a narrower version; give the narrower wording, built only from that entry.
 
-End with a count: "5 claims: 1 confirmed, 4 need a decision."
+End with a count: "5 claims: 1 confirmed, 4 need a decision." A claim with the status `confirmed by
+the person` counts as confirmed.
 
 ## Step 6: the unconfirmed claims, one at a time
 
-Go through every claim that is not confirmed, one claim per message, in draft order, using its
-suggestion:
+Go through every claim that is not confirmed, in draft order, one question per message, never two:
 
-- **`ask`:** ask whether it is true and what exactly it is.
-  - True, with the specific: offer to append it to `byline/person.md` as a new `F` entry. Its id is the
-    highest existing `F` number plus one; never reuse or renumber an id. Append only on yes. The claim
-    is now confirmed with that id (or confirmed by the person, if they decline to append it).
-  - Not true, or not sure: offer the cut or a narrower wording built from an entry.
-- **`cut` or `reword`:** show the suggestion and ask whether to apply it.
-- **`off limits`:** always offer it as a cut, and ask whether to apply it.
+- **`not in the file`:** the first question is always whether the claim is true as written.
+  - It is: offer to append it to `byline/person.md` as a new `F` entry. Its id is the highest
+    existing `F` number plus one; never reuse or renumber an id. Append only on yes. The claim is now
+    confirmed with that id (or confirmed by the person, if they decline to append it).
+  - It is not, or they ask to cut it: that is their decision to cut. Remove that claim's words from
+    the draft and say what was removed.
+  - They are not sure: offer the suggestion from Step 5 as the next question.
+- **`contradicts`:** show the entry and ask which is right, the entry or the draft. If the entry is,
+  apply the rewording built from it. If the draft is, leave it and offer to correct the entry, keeping
+  its id; change the entry only on yes.
+- **`off limits`:** ask whether to cut it. Yes: remove that claim's words and say what was removed.
+  No: leave it, and say plainly that the off-limits item is still in the draft.
 
-Apply a cut or rewording to the draft only when the person agrees, and only to that claim's words. If
-the draft came from a file, save the changed text back to the same file, post text only.
+Change only that claim's words, and only as the person decided. If the draft came from a file, save
+the changed text back to the same file, post text only.
 
 ## Common mistakes
 
