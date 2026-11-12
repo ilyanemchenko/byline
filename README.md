@@ -150,19 +150,19 @@ Details: [`docs/how-the-check-works.md`](docs/how-the-check-works.md). The texts
 
 ## How it was tested
 
-- **Unit tests:** `python3 -m pytest` runs 167 tests, all passing, on Python 3.9.6. The CI workflow runs
-  them on 3.9 and 3.12.
+- **Unit tests:** `python3 -m pytest` runs 167 tests, all passing, on Python 3.9.6. The CI workflow is set
+  to run them on 3.9 and 3.12.
 - **Reference set:** 46 tuning texts (26 human, 20 machine) and a holdout of 20 (10 human, 10 machine).
   The bar, fixed before the holdout run: no human text `heavy`, at most 2 human texts `some`, at least
   7 of 10 machine texts not `clean`. The holdout gave 10 human texts `clean`, and 7 machine texts
   `some` with 3 `clean`. That holdout is now spent: a change to any rule needs a new one.
 - **Quality run:** fresh agents ran the six skills of the main chain for three invented people (English
   for LinkedIn, English for X, Russian for Telegram) who answered from a script; the editor ran for one
-  of them, see below. `topic-scout` ran once, and `new-post` ran once and only up to its first stop.
-  Two false claims were planted in each draft for the fact check, and a separate agent judged the
-  results. Of 26 checks, 21 passed, none failed and 5 were not run: two editor runs were stopped by the model provider's safety filter, and three
-  rewrite steps had nothing to rewrite. The record and the fixes it led to are in
-  [`docs/quality-run.md`](docs/quality-run.md).
+  of them, see below. `topic-scout` ran once, and `new-post` ran once and only up to its first stop. Two
+  false claims were planted in each draft for the fact check, and a separate agent judged the results. Of
+  26 checks, 21 passed, none failed and 5 were not run: two editor runs were stopped by the model
+  provider's safety filter, and three rewrite steps had nothing to rewrite. The record and the fixes it
+  led to are in [`docs/quality-run.md`](docs/quality-run.md).
 - **Install:** `claude plugin validate .` passes, and both install routes above worked from a local
   clone. Not verified: that Claude Code or Codex loads and triggers the skills in a live session (no
   model call could be made from the test machine), the ChatGPT app, uploading a skill folder to the
@@ -184,7 +184,8 @@ Details: [`docs/how-the-check-works.md`](docs/how-the-check-works.md). The texts
 - The numbers come from one model family and from blog essays. Other models and other human writing
   may score differently.
 - The human texts are openings of longer essays, so the two patterns that read a post's last line
-  (`closer`, `hashtag_row`) cannot fire on them as on a finished post; without those two, the holdout
+  (`closer`, a closing cliché or question to the reader; `hashtag_row`, a last line made only of
+  hashtags) cannot fire on them as on a finished post; without those two, the holdout
   flags 4 of 10 machine texts, not 7. Twenty of the human excerpts stop before a list, and the same
   three authors wrote the tuning and the holdout texts. See [`reference/README.md`](reference/README.md).
 - Built for posts of up to about 600 words.

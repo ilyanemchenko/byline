@@ -1,7 +1,7 @@
 # Results
 
-The release bar, on a holdout that whoever tunes the rules never sees: no human text `heavy`, at most 2 human texts `some`,
-at least 7 of 10 machine texts not `clean`.
+The release bar, on a holdout that whoever tunes the rules never sees: no human text `heavy`, at most 2
+human texts `some`, at least 7 of 10 machine texts not `clean`.
 
 ## Holdout runs
 
@@ -81,13 +81,15 @@ at 18 → 3 humans `some` (h09, h21, h22). It stays 15.
 
 ### Admission check of the kept lexical changes
 
-Once the first holdout was folded in, the three lexical changes kept from tuning rounds 1 and 2 were checked again
-against the whole tuning set, with the same rule: at least 3 tuning machine texts, no tuning human text.
+Once the first holdout was folded in, the three lexical changes kept from tuning rounds 1 and 2 were
+checked again against the whole tuning set, with the same rule: at least 3 tuning machine texts, no
+tuning human text.
 
 - Contrast shape "X isn't Y. It's Z": the shape with `isn't|aren't|doesn't|don't|wasn't|won't` fired on
   human h14 ("don't feel like doing anything … It's almost as if"). It was narrowed to the copula only,
   `isn't|aren't … . It's|They're|That's`, which finds 6 machine texts (8 hits) and no human text.
-- "here is what": 8 machine texts, no human text. It is kept.
+- "here is what": it occurs in 8 machine texts and in no human text. The checker flags it in 7: in the
+  eighth, m16, it is inside quotation marks, which the checker skips. It is kept.
 - "here is where": 1 machine text, no human text. It falls short of 3 machine texts and is removed.
 - The removal of "simply" stands.
 

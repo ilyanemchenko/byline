@@ -77,7 +77,7 @@ The script prints whole-post patterns first, under `Whole post`, then flags by p
 
 | Code | Say it like this |
 |---|---|
-| `vocab` | a stock word or phrase common in machine prose ("leverage", "here is what") |
+| `vocab` | a stock word or phrase long associated with machine prose ("leverage", "here is what"); current models use these less |
 | `contrast` | the "it's not X, it's Y" formula (the opening sentence is allowed one) |
 | `triad` | a list of three short items or three short sentences in a row |
 | `fragments` | three or more very short sentences in a row |

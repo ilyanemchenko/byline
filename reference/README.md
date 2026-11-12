@@ -3,7 +3,7 @@
 These are the texts that the English rules of the slop check are measured on. Human texts are openings
 of blog posts that real people published before November 2022. Machine texts are LinkedIn posts that a
 language model wrote from a one-line prompt. A language counts as `measured` only if it has a reference
-set and passes the release bar on a holdout that the tuner never saw.
+set and passes the release bar on a holdout that the person or agent who tuned the checker never saw.
 
 This names patterns. It does not say who wrote the text.
 
@@ -172,10 +172,10 @@ the build machine that day.
 
 The first 40 texts were split into odd ids (`tune`) and even ids (`holdout`). Three holdout runs failed
 the bar (see `RESULTS.md`). The checker then gained whole-post template patterns, and all 46 texts here
-became the tuning set. A fresh holdout of 10 human and 10 machine texts was collected by agents the tuner
-does not control. It was run once against the frozen commit 5c06f25, on 2026-11-11. Result: human
-10 clean (0 `some`, 0 `heavy`); machine 7 `some`, 3 `clean`. **The bar passed**, with the machine side at
-exactly the minimum of 7. Details are in `RESULTS.md`.
+became the tuning set. A fresh holdout of 10 human and 10 machine texts was collected by agents that the
+person or agent who tuned the checker does not control. It was run once against the frozen commit
+5c06f25, on 2026-11-11. Result: human 10 clean (0 `some`, 0 `heavy`); machine 7 `some`, 3 `clean`. **The
+bar passed**, with the machine side at exactly the minimum of 7. Details are in `RESULTS.md`.
 
 This holdout is now spent. Any future change to a rule, constant or pattern has to be judged on a new
 holdout, collected and run the same way.

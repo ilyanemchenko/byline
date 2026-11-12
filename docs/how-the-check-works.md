@@ -118,8 +118,8 @@ To add a language, see `add-a-language.md`.
 - **The reader words for a closing question are a fixed list** per language (English: you, your,
   you've, you're, yours). A closing question that addresses the reader without one of them is not caught.
 - **A closing question followed by another sentence is missed.** "What does your onboarding look like
-  today? I'd like to hear what has worked for your team." on the last line is not a `closer`; two
-  machine texts in the reference set end this way.
+  today? I'd like to hear what has worked for your team." on the last line is not a `closer`; six
+  machine texts in the reference set end this way (m04, m13, m19, m24, m27, m30).
 - **One closing line can count twice.** "Thoughts? Let me know!" is a `closer` and also a `setup` (a short
   question answered on the same line): 30 points and `some` from one line.
 - **Any three short list items in a row are a `maxim_list`**, slogans or not. A colon line and a plain
@@ -132,7 +132,8 @@ To add a language, see `add-a-language.md`.
 - **The numbers come from one model family and from blog essays.** The machine texts were written by
   Claude models (Haiku, Sonnet, Opus 5.5) through an agent harness from a one-line prompt; the human
   texts are openings of blog essays by three authors published before November 2022.
-  `reference/README.md` explains both limits. Other models and other kinds of human writing may score differently.
+  `reference/README.md` explains both limits. Other models and other kinds of human writing may score
+  differently.
 
 ## Where the reference numbers live
 

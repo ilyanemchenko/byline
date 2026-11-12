@@ -1,8 +1,10 @@
 # Quality run
 
-Before release, on 2026-11-11 and 2026-11-12, every skill was run by agents that had never seen it,
-on three invented people. This page records what was checked, what passed, what was not run, and
-what was changed afterwards. The checker script is measured separately, in `reference/RESULTS.md`.
+Before release, on 2026-11-11 and 2026-11-12, agents that had never seen the skills ran them on three
+invented people: the six skills of the main chain for all three (the editor ran to the end for one of
+them), `topic-scout` once, and `new-post` once, only up to its first stop. This page records what was
+checked, what passed, what was not run, and what was changed afterwards. The checker script is measured
+separately, in `reference/RESULTS.md`.
 
 The run logs and instruction files are not published. What is published is this summary and the files
 of one person's run, in `examples/tamsin/`.
