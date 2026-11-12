@@ -1,0 +1,10 @@
+This person is invented. Any likeness to a real person or company is accidental.
+
+byline slop-check: some AI tells (score 30/100)
+Language: English (measured), 247 words, 10 paragraphs, 2 markers
+
+Whole post
+  line 9    setup        "Before you buy anything, do the unglamorous work:"
+  line 11   maxim_list   "1. Give every location a name. Aisle, shelf, bin. Label the…"
+
+This names patterns. It does not say who wrote the text.
