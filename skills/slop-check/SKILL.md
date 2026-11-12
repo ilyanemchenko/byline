@@ -41,7 +41,8 @@ Exit 0 means a report was printed, whatever the label. Exit 2 means a bad `--lan
    BYLINE_TEXT
    ```
 
-   If a line of the text is exactly `BYLINE_TEXT`, pick another end word.
+   If a line of the text is exactly `BYLINE_TEXT`, pick another end word. In any agent other than
+   Claude Code, replace `${CLAUDE_SKILL_DIR}` with the path to this skill's folder.
 
 2. **Pass `--lang`.** Decide the text's language yourself. If `rules/<code>.json` exists in this skill's
    folder for that language code (today: `en`, `ru`), pass `--lang <code>`. Always do this: the script
@@ -89,6 +90,18 @@ Labels: `clean` (below 20), `some AI tells` (20 to 49), `heavy AI tells` (50 and
 formula and the limits of the check, see `docs/how-the-check-works.md` in the repository.
 
 ## Example
+
+The input, 22 words in three paragraphs:
+
+```
+Here is what I learned:
+
+It's not about speed, it's about trust. We shipped. We learned. We grew.
+
+What would you do?
+```
+
+`check.py --lang en` on it prints:
 
 ```
 byline slop-check: some AI tells (score 39/100)

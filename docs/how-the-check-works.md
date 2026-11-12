@@ -112,6 +112,9 @@ To add a language, see `add-a-language.md`.
 - **List items are lines that start with a number (`1.` or `1)`) or with `-`, `*` or `•`.** Emoji
   bullets are not seen as lists, so a list of slogans behind emoji is not a `maxim_list`, and a closing
   question in an emoji item still counts as a closer.
+- **Two contrast sentences back to back are counted as one.** In "It's not the price, it's the trust.
+  It's not the speed, it's the care." the first match runs on into the second sentence's "It's", so
+  the check finds one `contrast` and no `contrast_run`.
 - **The reader words for a closing question are a fixed list** per language (English: you, your,
   you've, you're, yours). A closing question that addresses the reader without one of them is not caught.
 - **The numbers come from one model family and from blog essays.** The machine texts were written by
