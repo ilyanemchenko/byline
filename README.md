@@ -71,7 +71,7 @@ codex plugin marketplace add ilyanemchenko/byline
 codex plugin add byline@byline-skills
 ```
 
-Both routes were run with a local clone of this repository as the source, under temporary
+Both routes were run with the commands above against this repository on GitHub, under temporary
 configuration folders, and both installed version 0.1.0 with its eight skills.
 
 **Other agents.** The cross-agent installer from the `skills` project documents
@@ -150,8 +150,8 @@ Details: [`docs/how-the-check-works.md`](docs/how-the-check-works.md). The texts
 
 ## How it was tested
 
-- **Unit tests:** `python3 -m pytest` runs 167 tests, all passing, on Python 3.9.6. The CI workflow is set
-  to run them on 3.9 and 3.12.
+- **Unit tests:** `python3 -m pytest` runs 167 tests, all passing, on Python 3.9.6. The CI workflow runs
+  them on 3.9 and 3.12 on every push and pull request.
 - **Reference set:** 46 tuning texts (26 human, 20 machine) and a holdout of 20 (10 human, 10 machine).
   The bar, fixed before the holdout run: no human text `heavy`, at most 2 human texts `some`, at least
   7 of 10 machine texts not `clean`. The holdout gave 10 human texts `clean`, and 7 machine texts
@@ -163,8 +163,8 @@ Details: [`docs/how-the-check-works.md`](docs/how-the-check-works.md). The texts
   26 checks, 21 passed, none failed and 5 were not run: two editor runs were stopped by the model
   provider's safety filter, and three rewrite steps had nothing to rewrite. The record and the fixes it
   led to are in [`docs/quality-run.md`](docs/quality-run.md).
-- **Install:** `claude plugin validate .` passes, and both install routes above worked from a local
-  clone. Not verified: that Claude Code or Codex loads and triggers the skills in a live session (no
+- **Install:** `claude plugin validate .` passes, and both install routes above worked from the
+  GitHub address. Not verified: that Claude Code or Codex loads and triggers the skills in a live session (no
   model call could be made from the test machine), the ChatGPT app, uploading a skill folder to the
   Claude app, and the cross-agent installer.
 - **Readers:** no reader has judged the posts yet. [`docs/blind-test.md`](docs/blind-test.md) describes
