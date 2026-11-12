@@ -45,9 +45,9 @@ step (they already have an angle card or a draft), start there.
 
 ## The end
 
-Show the final post text, whether or not it is saved in a draft file (when it is, give the path
-under `byline/drafts/` too), then one line: the person signs it and publishes it
-themselves. Byline never posts anything anywhere.
+Show the final post text, whether or not it is saved in a draft file. When it is, give the path
+under `byline/drafts/` too: the file must hold this final text, every accepted change included. Then
+one line: the person signs it and publishes it themselves. Byline never posts anything anywhere.
 
 ## Common mistakes
 

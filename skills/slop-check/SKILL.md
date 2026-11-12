@@ -59,12 +59,17 @@ Exit 0 means a report was printed, whatever the label. Exit 2 means a bad `--lan
    that it does not say who wrote the text.
 
 5. **Offer a rewrite of the flagged places only.** Change only the flagged words and sentences.
-   Keep every fact, number, name, date and claim as it is, keep the person's voice, and touch nothing
-   outside the flagged places. Ask before rewriting; do not rewrite unasked.
+   Keep every fact, number, name, date and claim as it is, and add none: no new fact, number, name
+   or claim. Keep the person's voice, and touch nothing outside the flagged places. Ask before
+   rewriting; do not rewrite unasked.
 
 6. **After a rewrite, run the check again** on the new text with the same options and show both
    results: "before: some AI tells (score 39/100), after: clean (score 0/100)". If a flag remains,
    say so; do not hide it.
+
+7. **Save or show the rewrite.** If the text came from a file and the person accepted the rewrite,
+   save the rewritten text back to the same file, post text only, and say that you saved it and
+   where. If the text was pasted, show the rewritten text in full.
 
 ## What the flags mean
 

@@ -76,8 +76,9 @@ number, what happened next), the note says so and asks instead of proposing inve
 "Fix: name the clinic or the result. Which one was it?" Ask such questions one per message, after the
 notes.
 
-A proposed fix keeps every fact, number, name and claim as it is. If it adds a fact, that fact must
-already be an `F` or `S` entry.
+A proposed fix keeps every fact, number, name and claim as it is. It never adds a fact that is not
+already an `F` or `S` entry, and it never mentions anything listed under `## Off limits`, even when an
+`F` or `S` entry holds it.
 
 ## Step 5: apply on request
 

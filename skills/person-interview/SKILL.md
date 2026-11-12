@@ -141,7 +141,7 @@ whether to remove it; remove it only if they say yes.
 
 > Agent: What did you do for a client recently? Pick one case.
 > Person: I help small clinics with their booking systems.
-> Agent: Which clinic was the last one, and what changed for them?
+> Agent: Which clinic was the last one?
 > Person: A dental practice in Leeds, in September. No-shows went from 22% to 9% after we added SMS reminders.
 
 Saved as `- F1: In September a dental practice in Leeds went from 22% to 9% no-shows after we added SMS
